@@ -1,0 +1,60 @@
+* {
+    box-sizing: 0;
+    font-family: 'crushed';
+    padding: 0;
+    margin: 0;
+    background-color: rgb(184, 184, 184);
+}
+
+li,
+a,
+button {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 30px 10%;
+}
+
+.logo {
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.navbar {
+    list-style: none;
+}
+
+.navbar li {
+    display: inline-block;
+    padding: -0px 20px;
+}
+
+.navbar li a {
+    transition: all 0.3s ease 0;
+}
+
+.navbar li a:hover {
+    color: rgb(117, 213, 241);
+}
+
+button {
+    padding: 9px 25px;
+    margin-top: -10px;
+    background-color: rgb(117, 213, 241);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease 0;
+}
+
+button:hover {
+    background-color: rgb(3, 169, 211);
+}
