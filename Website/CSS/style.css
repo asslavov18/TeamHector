@@ -9,9 +9,9 @@
 li,
 a,
 button {
-    margin-top: 10px;
+    margin-top: 20px;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 23px;
     color: white;
     text-decoration: none;
 }
@@ -48,7 +48,7 @@ header {
 button {
     padding: 9px 25px;
     margin-top: -10px;
-    background-color: rgb(117, 213, 241);
+    background-color: rgb(43, 145, 241);
     border: none;
     border-radius: 40px;
     cursor: pointer;
@@ -56,5 +56,5 @@ button {
 }
 
 button:hover {
-    background-color: rgb(3, 169, 211);
+    background-color: rgb(3, 100, 211);
 }
