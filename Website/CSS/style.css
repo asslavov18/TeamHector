@@ -164,3 +164,9 @@ hr {
     transition: .5s;
     cursor: pointer;
 }
+
+footer {
+    background-color: rgb(7, 152, 201);
+    padding: 20px;
+    text-align: center;
+}
