@@ -3,7 +3,11 @@
     font-family: 'crushed';
     padding: 0;
     margin: 0;
-    background-color: rgb(184, 184, 184);
+    background-color: rgb(240, 248, 255);
+}
+
+.bg {
+    width: 100%;
 }
 
 li,
@@ -12,7 +16,7 @@ button {
     margin-top: 20px;
     font-weight: 500;
     font-size: 23px;
-    color: white;
+    color: rgb(116, 179, 238);
     text-decoration: none;
 }
 
@@ -26,6 +30,24 @@ header {
 .logo {
     margin-top: 0px;
     cursor: pointer;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.centered {
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background: linear-gradient(to right, #4ed3ff 0%, #02337c 100%);
+    position: absolute;
+    letter-spacing: 5px;
+    font-size: 40px;
+    top: 770px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .navbar {
@@ -46,6 +68,7 @@ header {
 }
 
 button {
+    color: #fff;
     padding: 9px 25px;
     margin-top: -10px;
     background-color: rgb(43, 145, 241);
