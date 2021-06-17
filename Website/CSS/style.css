@@ -12,7 +12,7 @@
 
 li,
 a,
-button {
+.navbutton {
     margin-top: 20px;
     font-weight: 500;
     font-size: 23px;
@@ -41,11 +41,11 @@ header {
     width: 100%;
     color: rgb(255, 255, 255);
     text-align: center;
-    background: linear-gradient(to right, #4ed3ff 0%, #02337c 100%);
+    background: linear-gradient(to right, #4ed3ffee 0%, #02337cf3 100%);
     position: absolute;
     letter-spacing: 5px;
     font-size: 40px;
-    top: 770px;
+    top: 765px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -67,7 +67,7 @@ header {
     color: rgb(117, 213, 241);
 }
 
-button {
+.navbutton {
     color: #fff;
     padding: 9px 25px;
     margin-top: -10px;
@@ -80,4 +80,58 @@ button {
 
 button:hover {
     background-color: rgb(3, 100, 211);
+}
+
+.main {
+    margin: 2%;
+}
+
+.card {
+    position: relative;
+    width: 23%;
+    display: inline-block;
+    box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.582);
+    border-radius: 10px;
+    margin: 5%;
+    height: 440px;
+}
+
+.image img {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.title {
+    text-align: center;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+.des {
+    border-radius: 5px;
+    padding: 3px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.butt {
+    border-width: 2px;
+    border-color: rgb(3, 100, 211);
+    margin-top: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.butt:hover {
+    background-color: rgb(3, 100, 211);
+    color: white;
+    transition: .5s;
+    cursor: pointer;
 }
