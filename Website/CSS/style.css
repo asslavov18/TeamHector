@@ -48,7 +48,7 @@ header {
     width: 100%;
     color: rgb(0, 94, 131);
     text-align: center;
-    background: linear-gradient(to bottom, #4ed3ff00 0%, rgb(240, 248, 255) 100%);
+    background: linear-gradient(to bottom, #4ed3ff00 0%, rgb(248, 252, 255) 100%);
     letter-spacing: 5px;
     height: 220px;
     font-size: 40px;
@@ -103,7 +103,7 @@ header {
 .newst {
     width: 12%;
     margin-left: 44%;
-    background-color: rgb(240, 248, 255);
+    background-color: rgb(248, 252, 255);
     margin-bottom: -60px;
     text-align: center;
     color: black;
@@ -248,16 +248,21 @@ body {
     font-size: 13px;
     line-height: 1.8;
     color: #222;
-    background: rgb(240, 248, 255);
+    background: rgb(248, 252, 255);
     font-weight: 400;
     font-family: Poppins;
 }
 
 .container {
+    opacity: 0.9;
     width: 900px;
     background: #fff;
     margin: 0 auto;
     box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.329);
+}
+
+.container:hover {
+    opacity: 0.95;
 }
 
 .position-center {
@@ -350,6 +355,7 @@ body {
 
 .input_s {
     width: 100%;
+    outline: none;
     display: block;
     border: none;
     border-bottom: 1px solid #999;
