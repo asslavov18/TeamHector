@@ -38,18 +38,39 @@
         z-index: 1;
     }
     
-    button {
-        padding: 10px;
-        border-radius: 20px;
+    .butt_g {
+        border-width: 2px;
+        border-color: rgba(3, 100, 211, 0);
+        cursor: pointer;
+        margin-top: 40px;
+        border-right: none;
+        border-top: none;
+        border-bottom: none;
+        margin-bottom: 10px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: -5px;
+        padding: 18px;
+        width: 8%;
+        box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.582);
+    }
+    
+    .butt_g:hover {
+        color: rgb(48, 152, 248);
+        box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.705);
     }
     
     .b {
-        padding: 10px;
-        margin-left: 15%;
-        width: 70%;
-        border-radius: 10px;
+        box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.582);
+        border: none;
+        padding: 18px;
+        margin-left: 24%;
+        width: 44%;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
         margin-bottom: 10%;
         margin-top: 5%;
+        outline: none;
     }
     
     #overlay2 {
@@ -67,7 +88,7 @@
         </a>
         <nav>
             <ul class="navbar">
-                <li><a href="../html/gallery.html">our Gallery</a></li>
+                <li><a href="../html/gallery.html" class="active_tab">our Gallery</a></li>
                 <li><a href="../html/info.html">Information</a></li>
                 <li><a href="../html/download.html">Download</a></li>
             </ul>
@@ -79,13 +100,12 @@
         <div id="overlay2"></div>
     </div>
 
-    <div class="topnav">
-        <div class="search-container">
-            <form action="/action_page.php">
-                <input class="b" type="text" placeholder="Search.." name="search">
-            </form>
+    <form action="https://www.google.com/search">
+        <div class="search-cont">
+            <input class="b" type="text" name="q">
+            <input class="butt_g" type="submit" value="search">
         </div>
-    </div>
+    </form>
 
     <script>
         function on() {
