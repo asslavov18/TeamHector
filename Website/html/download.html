@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="IMG/emblem.png" type="image/png">
+    <link href='https://fonts.googleapis.com/css?family=Crushed' rel='stylesheet'>
+    <title>Hector</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+
+<style>
+    #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(36, 36, 36, 0.884);
+        z-index: 1;
+        cursor: pointer;
+    }
+    
+    #text {
+        padding: 30px;
+        border: solid black;
+        background-image: url(../img/bac.png);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+    
+    .button_d {
+        margin-left: 47.5%;
+        color: white;
+        border-width: 2px;
+        border-color: rgb(3, 100, 211);
+        margin-top: 40px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding: 10px;
+        width: 8%;
+        background: linear-gradient(to bottom, rgb(3, 100, 211)0%, rgb(5, 146, 240) 100%);
+    }
+    
+    #overlay2 {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: blueviolet;
+    }
+</style>
+
+<body>
+    <header class="out_navbar">
+        <img class="logo" src="../IMG/logo.png" alt="Logpng" width="170px" height="50">
+        <nav>
+            <ul class="navbar">
+                <li><a href="../html/gallery.html">our Gallery</a></li>
+                <li><a href="../html/info.html">Information</a></li>
+                <li><a href="html/download.html">Download</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="../html/login.html"><button class=" navbutton">Log in </button></a>
+    </header>
+    <div id="overlay" onclick="off()" style="cursor: initial;">
+        <div id="text" style="background-color: blueviolet;">UNAVAILABLE</div>
+        <div id="overlay2"></div>
+    </div>
+
+    <div style="padding:20px"></div>
+    <button class="button_d" onclick="on()">DOWNLOAD</button>
+    </div>
+    <div style="padding:20px"></div>
+    <button class="button_d" onclick="on()">DOWNLOAD ZIP</button>
+    </div>
+
+    <script>
+        function on() {
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+
+    <footer> this is example footer</footer>
+
+
+</html>

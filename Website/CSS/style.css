@@ -3,7 +3,7 @@
     font-family: 'crushed';
     padding: 0;
     margin: 0;
-    background-color: rgb(240, 248, 255);
+    background-color: rgb(233, 245, 255);
 }
 
 .bg {
@@ -117,7 +117,7 @@ header {
     color: #fff;
     padding: 9px 25px;
     margin-top: -10px;
-    background-color: rgb(43, 145, 241);
+    background: linear-gradient(to bottom, rgb(3, 100, 211)0%, rgb(5, 146, 240) 100%);
     border: none;
     border-radius: 40px;
     cursor: pointer;
@@ -125,7 +125,7 @@ header {
 }
 
 button:hover {
-    background-color: rgb(3, 100, 211);
+    background: linear-gradient(to bottom, rgb(5, 146, 240)0%, rgb(3, 100, 211) 100%);
 }
 
 .main {
@@ -148,6 +148,10 @@ button:hover {
     border-top-left-radius: 5px;
 }
 
+.info_IMG {
+    margin-left: 10%;
+}
+
 .title {
     text-align: center;
     padding: 10px;
@@ -166,16 +170,6 @@ h1 {
     border-bottom-left-radius: 5px;
 }
 
-hr {
-    width: 30%;
-    margin-left: 35%;
-    margin-top: 250px;
-    margin-bottom: -33px;
-    color: rgb(92, 168, 255);
-    background-color: rgb(92, 168, 255);
-    z-index: 0;
-}
-
 .butt {
     border-width: 2px;
     border-color: rgb(3, 100, 211);
@@ -186,7 +180,7 @@ hr {
 }
 
 .butt:hover {
-    background-color: rgb(3, 100, 211);
+    background: linear-gradient(to bottom, rgb(3, 100, 211)0%, rgb(5, 146, 240) 100%);
     color: white;
     transition: .5s;
     cursor: pointer;
@@ -196,6 +190,5 @@ footer {
     background-color: rgb(7, 114, 201);
     color: white;
     padding: 40px;
-    margin-top: 100px;
     text-align: center;
 }
