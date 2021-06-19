@@ -3,7 +3,7 @@
     font-family: 'poppins';
     padding: 0;
     margin: 0;
-    background-color: rgb(240, 248, 255);
+    background-color: rgb(248, 252, 255);
 }
 
 .bg {
@@ -15,7 +15,7 @@ a,
 .navbutton {
     margin-top: 20px;
     font-weight: 500;
-    font-size: 130%;
+    font-size: 125%;
     color: rgb(116, 179, 238);
     text-decoration: none;
 }
@@ -348,7 +348,7 @@ body {
     margin-bottom: 0px;
 }
 
-input {
+.input_s {
     width: 100%;
     display: block;
     border: none;
