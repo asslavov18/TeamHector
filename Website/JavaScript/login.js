@@ -21,8 +21,3 @@ function hideAndShowPassConfirm() {
         document.getElementById("imgView2").src = "../img/view.png";
     }
 }
-
-function hideAndShowPassDown()
-{
-
-}

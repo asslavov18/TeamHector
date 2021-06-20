@@ -137,16 +137,17 @@
                     <div class="signup-content">
                         <div class="signup-form">
                             <h2 class="form-title">Sign in</h2>
-
                             <form name="login" id="logIn" method="POST" class="form-control" onsubmit="return loginUser()" style="display: none;"></form>
                             <div class="form-group">
-                                <label for="email"><img src="../img/mail_logo.png" width="20px" class="uname_img"></label>
+                                <label for="email"></label><img src="../img/mail_logo.png" width="20px" class="uname_img">
                                 <input class="input_s" type="email" name="email" id="email" placeholder="Your Email">
                             </div>
                             <div class="form-group">
-                                <label for="pass"><img src="../img/password_logo.png" width="20px" class="uname_img"></label>
+                                <label for="pass"></label><img src="../img/password_logo.png" width="20px" class="uname_img">  
+                                <img  src="../img/view.png" style="width:40px; position:absolute; margin-left:80px; cursor:pointer" id="imgView" onclick="hideAndShowPass()">                              
                                 <input class="input_s" type="password" name="pass" id="pass" placeholder="Password">
                             </div>
+                            
 
                             <div class="form-group form-button">
                                 <button type="submit" name="signup" id="signup" class="form-submit" onclick="loginUser()">Sign in</button>
@@ -172,5 +173,4 @@
 
     <script src="../JavaScript/download.js"></script>
     <script src="../JavaScript/localStorage.js"></script>
-    <script src="../JavaScript/login.js"></script>
 </html>
