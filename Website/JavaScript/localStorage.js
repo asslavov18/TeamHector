@@ -1,66 +1,12 @@
-function check()
-{
-    let name=document.getElementById("name");
-    let email=document.getElementById("email");
-    let password=document.getElementById("pass1");
-    let repeatPassword=document.getElementById("pass2");
-    let terms=document.getElementById("terms");
-
-    if(name.value.length==0||email.value.length==0||password.value.length==0||repeatPassword.value.length==0||terms.checked==false)
-    {
-        if(name.value.length==0)
-        {
-            document.getElementById("imgName").src="../img/username_logoR.png";
-        }
-        else{
-            document.getElementById("imgName").src="../img/username_logo.png";
-        }
-
-        if(email.value.length==0)
-        {
-            document.getElementById("imgEmail").src="../img/mail_logoR.png";
-        }
-        else{
-            document.getElementById("imgEmail").src="../img/mail_logo.png";
-        }
-
-        if(password.value.length==0)
-        {
-            document.getElementById("imgPass").src="../img/password_logoR.png";
-        }
-        else{
-            document.getElementById("imgPass").src="../img/password_logo.png";
-        }
-
-        if(repeatPassword.value.length==0)
-        {
-            document.getElementById("imgRePass").src="../img/password_logoR.png";
-        }
-        else{
-            document.getElementById("imgRePass").src="../img/password_logo.png";
-        }
-        if(terms.checked==false)
-        {
-            document.getElementById("termsText").style.color="red";
-        }
-        else{
-            document.getElementById("termsText").style.color="black";
-        }
-        
-    }
-    
-}
-
 //Data storing into localstorage
 function validateForm() {
 
     let data = localStorage.getItem('details') ? JSON.parse(localStorage.getItem('details')) : [];;
     let formData = {
-        "name": document.getElementById("uName").value,
-        "email": document.getElementById("uEmail").value,
-        "contactno": document.getElementById("uContactno").value,
-        "password": document.getElementById("uPassword").value,
-        "confirmpassword": document.getElementById("confirmPassword").value
+        "name": document.getElementById("name").value,
+        "email": document.getElementById("email").value,
+        "password": document.getElementById("pass1").value,
+        "confirmpassword": document.getElementById("pass2").value
     }
     data.push(formData);
     if (localStorage) {
@@ -69,7 +15,7 @@ function validateForm() {
 }
 //Check if password is matching
 function verifyPassword(input) {
-    if (input.value != document.getElementById("uPassword").value) {
+    if (input.value != document.getElementById("pass1").value) {
         input.setCustomValidity("Password Must be Matching");
     } else {
         input.setCustomValidity("");
@@ -97,16 +43,8 @@ const form = document.getElementById("registerForm");
 form.addEventListener("submit", function(e) {
     e.preventDefault();
     form.reset();
-    document.getElementById("thankYou").style.display = "block";
-    form.style.display = "none";
+    alert("Registration Confirmed!");
 });
-
-function showHide(show, hide) {
-    let showEle = document.getElementById(show);
-    let hideEle = document.getElementById(hide);
-    showEle.style.display = "block";
-    hideEle.style.display = "none";
-}
 
 //Download function
 function download(url) {
@@ -121,8 +59,8 @@ function download(url) {
 //login here
 function loginUser() {
 
-    let loginEmail = document.getElementById("uemailId").value;
-    let loginPass = document.getElementById("ePassword").value;
+    let loginEmail = document.getElementById("email").value;
+    let loginPass = document.getElementById("pass1").value;
     let matchEmail = JSON.parse(localStorage.getItem("details"));
     let emailArray = [];
     let passArray = [];
