@@ -5,7 +5,8 @@
     <link rel="icon" href="../img/emblem.png" type="image/png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>Hector</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/gallery.css">
 </head>
 
 
@@ -97,30 +98,20 @@
         </nav>
         <a class="cta" href="../html/login.html"><button class=" navbutton">Sign up</button></a>
     </header>
-    <div id="overlay" onclick="off()">
-        <div id="text">DOWNLOAD</div>
-        <div id="overlay2"></div>
-    </div>
 
-    <form action="https://www.google.com/search">
+
+    <form id="searchForm">
         <div class="search-cont">
             <img src="../img/hector_search.png" width="170px" style="margin-left: 13%;margin-right: -21%; margin-bottom: -12px; ">
-            <input class="b" type="text" name="q">
-            <input class="butt_g" type="submit" value="search">
+            <input class="b" id="searcher" type="text" name="q">
+            <input class="butt_g" value="search" type="submit" onclick="check()">
         </div>
     </form>
 
-    <script>
-        function on() {
-            document.getElementById("overlay").style.display = "block";
-        }
-
-        function off() {
-            document.getElementById("overlay").style.display = "none";
-        }
-    </script>
 
     <footer> this is example footer</footer>
+
+    <script src="../JavaScript/gallery.js"></script>
 
 
 </html>

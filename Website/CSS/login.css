@@ -1,0 +1,15 @@
+#view1{
+    width: 40px;
+    display: inline-block;
+    position: absolute;
+    cursor:pointer;
+    margin-left:90px;
+}
+
+#view2{
+    width: 40px;
+    display: inline-block;
+    position: absolute;
+    cursor:pointer;
+    margin-left:90px;
+}
