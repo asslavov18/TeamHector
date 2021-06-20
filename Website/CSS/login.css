@@ -1,15 +1,8 @@
-#view1{
+.view{
     width: 40px;
     display: inline-block;
     position: absolute;
     cursor:pointer;
-    margin-left:90px;
-}
-
-#view2{
-    width: 40px;
-    display: inline-block;
-    position: absolute;
-    cursor:pointer;
-    margin-left:90px;
+    margin-left:80px;
+    margin-top:-5px;
 }
