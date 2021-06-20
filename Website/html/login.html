@@ -35,28 +35,28 @@
                     <h2 class="form-title">Sign up</h2>
                     <form>
                     <div class="form-group">
-                        <label for="name"><img src="../img/username_logo.png" width="20px" class="uname_img"></label>
+                        <label for="name"><img src="../img/username_logo.png" width="20px" class="uname_img" id="imgName"></label>
                         <input class="input_s" type="text" name="name" id="name" placeholder="Your Name" />
                     </div>
                     <div class="form-group">
-                        <label for="email"><img src="../img/mail_logo.png" width="20px" class="uname_img"></label>
+                        <label for="email"><img src="../img/mail_logo.png" width="20px" class="uname_img" id="imgEmail"></label>
                         <input class="input_s" type="email" name="email" id="email" placeholder="Your Email" />
                     </div>
                     <div class="form-group">
-                        <label for="pass"><img src="../img/password_logo.png" width="20px" class="uname_img"></label>
+                        <label for="pass"><img src="../img/password_logo.png" width="20px" class="uname_img" id="imgPass"></label>
                         <div class="view"><img id="imgView1" src="../img/view.png" onclick="hideAndShowPass()"></div>
                         <input class="input_s" id="pass1" type="password" placeholder="Password" />
                     </div>
                     <div class="form-group">
-                        <label for="re-pass"><img src="../img/password_logo.png" width="20px" class="uname_img"></i></label>
+                        <label for="re-pass"><img src="../img/password_logo.png" id="imgRePass" width="20px" class="uname_img" ></i></label>
                         <div class="view"><img id="imgView2" onclick="hideAndShowPassConfirm()" src="../img/view.png"></div>
                         <input class="input_s" id="pass2" type="password"   placeholder="Repeat your password" />
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="terms" name="terms" value="agreement" >
-                        <label for="terms"> I agree all statements in Terms of <br>service</label><br><br> </div>
+                        <label for="terms" id="termsText"> I agree all statements in Terms of <br>service</label><br><br> </div>
                     <div class="form-group form-button">
-                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                        <input type="button" name="signup" id="signup" class="form-submit" value="Register" onclick="check()" />
                     </div>
                     </form>
                 </div>

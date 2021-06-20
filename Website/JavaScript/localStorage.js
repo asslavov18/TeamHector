@@ -1,3 +1,56 @@
+function check()
+{
+    let name=document.getElementById("name");
+    let email=document.getElementById("email");
+    let password=document.getElementById("pass1");
+    let repeatPassword=document.getElementById("pass2");
+    let terms=document.getElementById("terms");
+
+    if(name.value.length==0||email.value.length==0||password.value.length==0||repeatPassword.value.length==0||terms.checked==false)
+    {
+        if(name.value.length==0)
+        {
+            document.getElementById("imgName").src="../img/username_logoR.png";
+        }
+        else{
+            document.getElementById("imgName").src="../img/username_logo.png";
+        }
+
+        if(email.value.length==0)
+        {
+            document.getElementById("imgEmail").src="../img/mail_logoR.png";
+        }
+        else{
+            document.getElementById("imgEmail").src="../img/mail_logo.png";
+        }
+
+        if(password.value.length==0)
+        {
+            document.getElementById("imgPass").src="../img/password_logoR.png";
+        }
+        else{
+            document.getElementById("imgPass").src="../img/password_logo.png";
+        }
+
+        if(repeatPassword.value.length==0)
+        {
+            document.getElementById("imgRePass").src="../img/password_logoR.png";
+        }
+        else{
+            document.getElementById("imgRePass").src="../img/password_logo.png";
+        }
+        if(terms.checked==false)
+        {
+            document.getElementById("termsText").style.color="red";
+        }
+        else{
+            document.getElementById("termsText").style.color="black";
+        }
+        
+    }
+    
+}
+
 //Data storing into localstorage
 function validateForm() {
 
