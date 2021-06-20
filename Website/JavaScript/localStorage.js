@@ -60,7 +60,7 @@ function download(url) {
 function loginUser() {
 
     let loginEmail = document.getElementById("email").value;
-    let loginPass = document.getElementById("pass1").value;
+    let loginPass = document.getElementById("pass").value;
     let matchEmail = JSON.parse(localStorage.getItem("details"));
     let emailArray = [];
     let passArray = [];
@@ -69,13 +69,13 @@ function loginUser() {
         emailArray.push(matchEmail[i].email);
         passArray.push(matchEmail[i].password);
     });
-    // console.log(emailArray);
+
     if (emailArray.indexOf(loginEmail) > -1 && passArray.indexOf(loginPass) > -1) {
         alert("Thank you for logging in!");
-        download("Project/test1.zip");
-
+        // Download Link
+        window.location="../index.html";
     } else {
-        // console.log("You have no registered with us");
+       
         alert("Incorrect Data!");
     }
 
