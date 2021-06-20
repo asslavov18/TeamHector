@@ -43,10 +43,10 @@
         color: white;
         border-width: 2px;
         border-color: rgb(3, 100, 211);
-        margin-top: 40px;
-        margin-bottom: 10px;
+        margin-top: 5%;
+        margin-bottom: 10%;
         border-radius: 5px;
-        padding: 10px;
+        padding: 20px;
         width: 8%;
         background: linear-gradient(to bottom, rgb(3, 100, 211)0%, rgb(5, 146, 240) 100%);
     }
@@ -75,7 +75,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0);
-        background: #fff;
+        background: rgba(255, 255, 255, 0);
         width: 95%;
         max-width: 500px;
         height: 250px;
@@ -129,17 +129,41 @@
     <div class="popup" id="popup-1">
         <div class="overlay"></div>
         <div class="content">
-            <div class="close-btn" onclick="togglePopup()">×</div>
-            <h1>log in</h1>
-            <div class="form-group">
-                <label for="name"><img src="../img/username_logo.png" width="20px" class="uname_img"></label>
-                <input class="input_s" type="text" name="name" id="name" placeholder="Your Name" />
-            </div>
-            <div class="form-group">
-                <label for="name"><img src="../img/username_logo.png" width="20px" class="uname_img"></label>
-                <input class="input_s" type="text" name="name" id="name" placeholder="password" />
-            </div>
-            <button onclick="togglePopup()">signin</button>
+            <section class="signup" style="margin-top: -45%; margin-left: -50%;">
+                <div class="container" style="opacity: 1;">
+                    <div class="signup-content">
+                        <div class="signup-form">
+                            <h2 class="form-title">Sign in</h2>
+
+
+                            <div class="form-group">
+                                <label for="email"><img src="../img/mail_logo.png" width="20px" class="uname_img"></label>
+                                <input class="input_s" type="email" name="email" id="email" placeholder="Your Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><img src="../img/password_logo.png" width="20px" class="uname_img"></label>
+                                <input class="input_s" type="password" name="pass" id="pass" placeholder="Password" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" id="terms" name="terms" value="agreement">
+                                <label for="terms"> Remember me</label><br><br> </div>
+
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Log in" />
+                            </div>
+                            </form>
+                        </div>
+                        <div class="close-btn" onclick="togglePopup()">×</div>
+
+                        <div class="signup-image">
+                            <figure><img src="../img/ocean.jpg" width="200px" alt="sing up image"></figure>
+                            <a href="#" class="signup-image-link" style="text-decoration: underline;">create an account</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
 

@@ -15,7 +15,7 @@ a,
 .navbutton {
     margin-top: 20px;
     font-weight: 500;
-    font-size: 125%;
+    font-size: 120%;
     color: rgb(116, 179, 238);
     text-decoration: none;
 }
@@ -123,7 +123,7 @@ header {
     color: #fff;
     padding: 9px 25px;
     margin-top: -10px;
-    background: linear-gradient(to bottom, rgb(3, 100, 211)0%, rgb(5, 146, 240) 100%);
+    background: linear-gradient(to bottom, rgb(0, 137, 228)0%, rgb(5, 146, 240) 100%);
     border: none;
     border-radius: 40px;
     cursor: pointer;
@@ -131,7 +131,7 @@ header {
 }
 
 button:hover {
-    background: linear-gradient(to bottom, rgb(5, 146, 240)0%, rgb(3, 100, 211) 100%);
+    background: linear-gradient(to bottom, rgb(5, 146, 240)0%, rgb(0, 137, 228) 100%);
 }
 
 .main {
@@ -303,19 +303,20 @@ body {
 }
 
 .form-submit {
-    display: inline-block;
-    background: #6dabe4;
-    color: #fff;
-    border-bottom: none;
+    border-width: 2px;
+    border-color: rgb(42, 141, 255);
+    margin-top: 40px;
+    margin-bottom: 10px;
+    border-radius: 15px;
     width: auto;
     padding: 15px 39px;
-    border-radius: 5px;
-    margin-top: 25px;
-    cursor: pointer;
+    transition: 0.4s;
 }
 
 .form-submit:hover {
-    background: #4292dc;
+    transition: 0.4s;
+    color: white;
+    background: linear-gradient(to bottom, rgb(42, 141, 255) 0%, rgb(7, 108, 224) 100%);
 }
 
 #signin {
@@ -370,18 +371,11 @@ input[type=checkbox]:not(old) {
     margin: 0;
     padding: 0;
     font-size: 1em;
-    display: none;
 }
 
 .uname_img {
     margin-bottom: -25px;
     float: left;
-}
-
-input[type=checkbox]:not(old)+label {
-    display: inline-block;
-    line-height: 1.5em;
-    margin-top: 6px;
 }
 
 .signup-form {
