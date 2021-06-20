@@ -1,6 +1,6 @@
 function hideAndShowPass() {
     let view=document.getElementById("pass1");
-    if(view.type=="password")
+    if(view.type==="password")
     {
         document.getElementById("imgView1").src="../img/unview.png";
         view.type="text";
@@ -22,3 +22,7 @@ function hideAndShowPassConfirm() {
     }
 }
 
+function hideAndShowPassDown()
+{
+
+}
