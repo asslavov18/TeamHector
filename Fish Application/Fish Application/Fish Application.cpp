@@ -220,7 +220,7 @@ void printSortingMenu()
 	printf("1. Sort by name alphabetically\n");
 	printf("2. Sort by name alphabetically reversed\n");
 	printf("3. Sort by color alphabetically\n");
-	printf("4. Sort by color alphabetically reserved\n");
+	printf("4. Sort by color alphabetically reversed\n");
 	printf("5. Sort by age largest to smallest\n");
 	printf("6. Sort by age smallest to largest\n");
 	
