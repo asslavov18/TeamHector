@@ -17,7 +17,19 @@ void printMenu()
 	printf("5. Find fish data by parameters\n");
 }
 
+void inputFishData(string data)
+{
+	cin >> data;
+	inputData << data << endl;
+}
 
+void outputFishData(string data)
+{
+	while (getline(outputData, data))
+	{
+		cout << data << endl;
+	}
+}
 
 int main()
 {
