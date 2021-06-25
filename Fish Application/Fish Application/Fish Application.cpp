@@ -34,6 +34,7 @@ bool setColor(WORD newColor)
 
 void printMenu()
 {
+	system("cls");
 	setColor(FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	printf("1. Show fish data\n");
 	setColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
@@ -65,6 +66,8 @@ void printMenu()
 
 void inputFishData()
 {
+	cin.ignore();
+	system("cls");
 
 	printf("Enter Fish Name: ");
 
@@ -100,11 +103,12 @@ void outputFishData()
 	for (int i = 0; i < fishPostion; i++)
 	{
 		cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << endl;
+		fishNumber++;
 	}
 
-	int exitCheck;
-
-	cout << endl << "Enter 0 to escape";
+	cout << endl << "Press Enter to escape: ";
+	cin.get();
+	cin.ignore();
 }
 
 /*void removeFishData()
@@ -210,8 +214,22 @@ FISH_DATA sortByLifetimeSmallestToLargest()
 	return fishes[fishPostion];
 }
 
+void printSortingMenu()
+{
+	system("cls");
+	printf("1. Sort by name alphabetically\n");
+	printf("2. Sort by name alphabetically reversed\n");
+	printf("3. Sort by color alphabetically\n");
+	printf("4. Sort by color alphabetically reserved\n");
+	printf("5. Sort by age largest to smallest\n");
+	printf("6. Sort by age smallest to largest\n");
+	
+	printf("\nEnter your choice: ");
+}
+
 void checkForMatchAdminData()
 {
+	system("cls");
 	int counter = 0;
 	string outputData;
 	string inputCheckData;
@@ -224,11 +242,8 @@ void checkForMatchAdminData()
 		{
 			counter++;
 		}
-
-		if (counter == 1)
-		{
-			printf("Enter admin password: ");
-		}
+		printf("Enter admin password: ");
+		
 	}
 
 	if (counter == 2)
@@ -248,12 +263,14 @@ void startProgram()
 	{
 		case 1:
 		outputFishData();
+		startProgram();
 		break;
 
 		case 2:
 			if (checkForMatch)
 			{
 				inputFishData();
+				startProgram();
 			}
 			else {
 				startProgram();
@@ -271,6 +288,40 @@ void startProgram()
 			break;
 			
 		case 4:
+			int sortChoice;
+			printSortingMenu();
+			cin >> sortChoice;
+				switch (sortChoice)
+				{
+						case 1:
+						sortByNameAlphabetically();
+						break;
+
+						case 2:
+						sortByNameAlphabeticallyReversed();
+						break;
+
+						case 3:
+						sortByColorAlpabetically();
+						break;
+
+						case 4:
+						sortByColorAlpabeticallyReversed();
+						break;
+
+						case 5:
+						sortByLifetimeLargestToSmallest();
+						break;
+
+						case 6:
+						sortByLifetimeSmallestToLargest();
+						break;
+
+						default:
+						startProgram();
+						break;
+				}
+			startProgram();
 			break;
 
 		case 5:
