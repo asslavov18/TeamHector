@@ -8,6 +8,15 @@ using namespace std;
 ofstream inputData("FishData.txt");
 ifstream outputData("FishData.txt");
 bool checkForMatch = false;
+int fishPostion=0;
+
+struct FISH_DATA {
+	string name;
+	string color;
+	int lifeTime;
+};
+
+FISH_DATA fishes[100];
 
 bool setColor(WORD newColor)
 {
@@ -48,19 +57,53 @@ void printMenu()
 
 void inputFishData()
 {
-	string data;
-	cin >> data;
-	inputData << data << endl;
+	FISH_DATA fishData;
+
+	printf("Enter Fish Name: ");
+
+	getline(cin,fishData.name);
+	inputData << fishData.name<<"  Color: ";
+	fishes[fishPostion].name = fishData.name;
+
+	printf("Enter Fish Color: ");
+
+	getline(cin, fishData.color);
+	inputData << fishData.color << "  Lifetime: ";
+	fishes[fishPostion].color = fishData.color;
+
+	printf("Enter Fish Lifetime: ");
+
+	cin >> fishData.lifeTime;
+	inputData << fishData.lifeTime<<" years"<<endl;
+	fishes[fishPostion].lifeTime = fishData.lifeTime;
+
+	fishPostion++;
+
+	cin.ignore();
 }
 
 void outputFishData()
 {
 	string data;
+	int fishNumber = 1;
 	while (getline(outputData, data))
 	{
-		cout << data << endl;
+		cout<<fishNumber<<"."<<" Name: "<< data << endl;
+		fishNumber++;
 	}
+
+	cout << endl << "Enter 0 to escape";
 }
+
+/*void removeFishData()
+{
+	int* choice = new int;
+	outputFishData();
+	printf("Enter a number row you want to remove: ");
+	cin >> *choice;
+}*/
+
+
 
 void checkForMatchAdminData()
 {
@@ -96,11 +139,18 @@ void startProgram()
 		break;
 
 		case 2:
+			if (checkForMatch)
+			{
+				outputFishData();
+			}
 			break;
 	}
 }
 
 int main()
 {
-	printMenu();
+	inputFishData();
+	inputFishData();
+	system("cls");
+	outputFishData();
 }
