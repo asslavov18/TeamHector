@@ -54,7 +54,13 @@ void printMenu()
 	setColor(FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	printf("4. Sort fish data\n");
 	printf("5. Find fish data by parameters\n");
-	printf("6. Login as admin\n");
+	if (checkForMatch == false)
+	{
+		printf("6. Login as admin\n");
+	}
+
+	printf("\nEnter your choice: ");
+	
 }
 
 void inputFishData()
@@ -82,6 +88,7 @@ void inputFishData()
 
 void outputFishData()
 {
+	system("cls");
 	string data;
 	int fishNumber = 1;
 	/*while (getline(outputData, data))
@@ -95,6 +102,8 @@ void outputFishData()
 		cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << endl;
 	}
 
+	int exitCheck;
+
 	cout << endl << "Enter 0 to escape";
 }
 
@@ -105,11 +114,6 @@ void outputFishData()
 	printf("Enter a number row you want to remove: ");
 	cin >> *choice;
 }*/
-
-bool compator(string a, string b)
-{
-	return a < b;
-}
 
 
 FISH_DATA sortByNameAlphabetically()
@@ -212,12 +216,18 @@ void checkForMatchAdminData()
 	string outputData;
 	string inputCheckData;
 	ifstream adminData("AdminData.txt");
+	printf("Enter admin email: ");
 	while (getline(adminData, outputData))
 	{
 		cin >> inputCheckData;
 		if (outputData==inputCheckData)
 		{
 			counter++;
+		}
+
+		if (counter == 1)
+		{
+			printf("Enter admin password: ");
 		}
 	}
 
@@ -231,6 +241,7 @@ void checkForMatchAdminData()
 void startProgram()
 {
 	int* choice = new int;
+	printMenu();
 	cin >> *choice;
 
 	switch (*choice)
@@ -242,16 +253,43 @@ void startProgram()
 		case 2:
 			if (checkForMatch)
 			{
-				outputFishData();
+				inputFishData();
+			}
+			else {
+				startProgram();
 			}
 			break;
+
+		case 3:
+			if (checkForMatch)
+			{
+				outputFishData();
+			}
+			else {
+				startProgram();
+			}
+			break;
+			
+		case 4:
+			break;
+
+		case 5:
+			break;
+
+		case 6:
+			checkForMatchAdminData();
+			startProgram();
+			break;
+
+		default:
+			startProgram();
+			break;
 	}
+
+	delete choice;
 }
 
 int main()
 {
-	inputFishData();
-	inputFishData();
-	system("cls");
-	outputFishData();
+	startProgram();
 }
