@@ -18,8 +18,6 @@ struct FISH_DATA {
 
 FISH_DATA fishes[100];
 
-//string fishLines[20];
-
 bool setColor(WORD newColor)
 {
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -94,11 +92,6 @@ void outputFishData()
 	system("cls");
 	string data;
 	int fishNumber = 1;
-	/*while (getline(outputData, data))
-	{
-		cout<<fishNumber<<"."<<" Name: "<< data << endl;
-		fishNumber++;
-	}*/
 
 	for (int i = 0; i < fishPostion; i++)
 	{
