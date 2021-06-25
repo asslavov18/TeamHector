@@ -15,6 +15,7 @@ void printMenu()
 	printf("3. Remove fish data (Administration permissions needed!)\n");
 	printf("4. Sort fish data\n");
 	printf("5. Find fish data by parameters\n");
+	printf("6. Login as admin\n");
 }
 
 void inputFishData(string data)
@@ -31,8 +32,31 @@ void outputFishData(string data)
 	}
 }
 
+void checkForMatchAdminData()
+{
+	int counter = 0;
+	string outputData;
+	string inputCheckData;
+	ifstream adminData("AdminData.txt");
+	while (getline(adminData, outputData))
+	{
+		cin >> inputCheckData;
+		if (outputData==inputCheckData)
+		{
+			counter++;
+		}
+	}
+
+	if (counter == 2)
+	{
+		checkForMatch = true;
+	}
+}
+
+
+
 int main()
 {
-
+	
 	
 }
