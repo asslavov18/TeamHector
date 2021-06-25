@@ -18,6 +18,8 @@ struct FISH_DATA {
 
 FISH_DATA fishes[100];
 
+//string fishLines[20];
+
 bool setColor(WORD newColor)
 {
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -57,25 +59,21 @@ void printMenu()
 
 void inputFishData()
 {
-	FISH_DATA fishData;
 
 	printf("Enter Fish Name: ");
 
-	getline(cin,fishData.name);
-	inputData << fishData.name<<"  Color: ";
-	fishes[fishPostion].name = fishData.name;
+	getline(cin,fishes[fishPostion].name);
+	inputData << fishes[fishPostion].name<<" ";
 
 	printf("Enter Fish Color: ");
 
-	getline(cin, fishData.color);
-	inputData << fishData.color << "  Lifetime: ";
-	fishes[fishPostion].color = fishData.color;
+	getline(cin, fishes[fishPostion].color);
+	inputData << fishes[fishPostion].color << " ";
 
 	printf("Enter Fish Lifetime: ");
 
-	cin >> fishData.lifeTime;
-	inputData << fishData.lifeTime<<" years"<<endl;
-	fishes[fishPostion].lifeTime = fishData.lifeTime;
+	cin >> fishes[fishPostion].lifeTime;
+	inputData << fishes[fishPostion].lifeTime<<endl;
 
 	fishPostion++;
 
@@ -86,10 +84,15 @@ void outputFishData()
 {
 	string data;
 	int fishNumber = 1;
-	while (getline(outputData, data))
+	/*while (getline(outputData, data))
 	{
 		cout<<fishNumber<<"."<<" Name: "<< data << endl;
 		fishNumber++;
+	}*/
+
+	for (int i = 0; i < fishPostion; i++)
+	{
+		cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << endl;
 	}
 
 	cout << endl << "Enter 0 to escape";
@@ -103,7 +106,105 @@ void outputFishData()
 	cin >> *choice;
 }*/
 
+bool compator(string a, string b)
+{
+	return a < b;
+}
 
+
+FISH_DATA sortByNameAlphabetically()
+{
+
+	for (int i = 0; i < fishPostion; i++)
+	{
+		for (int j = 0; j < fishPostion - 1; j++)
+		{
+			if (fishes[j].name >= fishes[j + 1].name) {
+				swap(fishes[j], fishes[j + 1]);
+			}
+		}
+	}
+
+	return fishes[fishPostion];
+}
+
+
+FISH_DATA sortByNameAlphabeticallyReversed()
+{
+
+	for (int i = 0; i < fishPostion; i++)
+	{
+		for (int j = 0; j < fishPostion - 1; j++)
+		{
+			if (fishes[j].name <= fishes[j + 1].name) {
+				swap(fishes[j], fishes[j + 1]);
+			}
+		}
+	}
+
+	return fishes[fishPostion];
+}
+
+
+FISH_DATA sortByColorAlpabetically()
+{
+	for (int i = 0; i < fishPostion; i++)
+	{
+		for (int j = 0; j < fishPostion - 1; j++)
+		{
+			if (fishes[j].color >= fishes[j + 1].color) {
+				swap(fishes[j], fishes[j + 1]);
+			}
+		}
+	}
+
+	return fishes[fishPostion];
+}
+
+FISH_DATA sortByColorAlpabeticallyReversed()
+{
+	for (int i = 0; i < fishPostion; i++)
+	{
+		for (int j = 0; j < fishPostion - 1; j++)
+		{
+			if (fishes[j].color <= fishes[j + 1].color) {
+				swap(fishes[j], fishes[j + 1]);
+			}
+		}
+	}
+
+	return fishes[fishPostion];
+}
+
+FISH_DATA sortByLifetimeLargestToSmallest()
+{
+	for (int i = 0; i < fishPostion; i++)
+	{
+		for (int j = 0; j < fishPostion - 1; j++)
+		{
+			if (fishes[j].lifeTime <= fishes[j + 1].lifeTime) {
+				swap(fishes[j], fishes[j + 1]);
+			}
+		}
+	}
+
+	return fishes[fishPostion];
+}
+
+FISH_DATA sortByLifetimeSmallestToLargest()
+{
+	for (int i = 0; i < fishPostion; i++)
+	{
+		for (int j = 0; j < fishPostion - 1; j++)
+		{
+			if (fishes[j].lifeTime >= fishes[j + 1].lifeTime) {
+				swap(fishes[j], fishes[j + 1]);
+			}
+		}
+	}
+
+	return fishes[fishPostion];
+}
 
 void checkForMatchAdminData()
 {
