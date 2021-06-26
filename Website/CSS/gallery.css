@@ -1,0 +1,72 @@
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(36, 36, 36, 0.884);
+    z-index: 1;
+    cursor: pointer;
+}
+
+#text {
+    padding: 30px;
+    border: solid black;
+    background-image: url(../img/bac.png);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.butt_g {
+    border-width: 2px;
+    border-color: rgba(3, 100, 211, 0);
+    background-color: rgb(7, 114, 201);
+    color: white;
+    cursor: pointer;
+    margin-top: 40px;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    margin-bottom: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: -5px;
+    padding: 18px;
+    width: 8%;
+    box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.582);
+}
+
+.butt_g:hover {
+    color: rgb(48, 152, 248);
+    box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.705);
+}
+
+.b {
+    box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.582);
+    border: none;
+    padding: 18px;
+    margin-left: 24%;
+    width: 44%;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    outline: none;
+}
+
+#overlay2 {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: blueviolet;
+}
