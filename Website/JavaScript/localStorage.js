@@ -73,9 +73,9 @@ function loginUser() {
     if (emailArray.indexOf(loginEmail) > -1 && passArray.indexOf(loginPass) > -1) {
         alert("Thank you for your cooperation!");
         // Download Link
-        window.location="../index.html";
+        window.location = "../index.html";
     } else {
-       
+
         alert("Incorrect Data!");
     }
 

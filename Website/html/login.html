@@ -31,10 +31,10 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>
-                    <form id="registerForm" method="POST" name="registration">
+                    <form id="registerForm" method="POST" name="registration" onsubmit="return validateForm()">
                         <div class="form-group">
                             <label for="name"><img src="../img/username_logo.png" width="20px" class="uname_img" id="imgName"></label>
-                            <input class="input_s" id="nameinp" type="text" name="name" id="name" placeholder="Your Name" required/>
+                            <input class="input_s" type="text" name="name" id="name" placeholder="Your Name" required/>
                         </div>
 
                         <div class="form-group">
