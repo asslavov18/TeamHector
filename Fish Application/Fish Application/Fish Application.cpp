@@ -25,8 +25,9 @@ FISH_DATA fishes[100] = {
 	{"Blue Discuss","Blue", 10, "Fresh Water"}
 };
 
-void rememberFishDataInTxtFile()
+void rememberFishDataInFile()
 {
+	inputData.open("FishData.txt", std::ofstream::out | std::ofstream::trunc);
 	for(int i = 0; i < fishPostion; i++)
 	{
 		inputData << fishes[i].name<<" ";
@@ -130,13 +131,7 @@ void outputFishData()
 	cin.ignore();
 }
 
-/*void removeFishData()
-{
-	int* choice = new int;
-	outputFishData();
-	printf("Enter a number row you want to remove: ");
-	cin >> *choice;
-}*/
+
 
 
 FISH_DATA sortByNameAlphabetically()
@@ -426,7 +421,7 @@ void startProgram()
 {
 	if (check)
 	{
-		rememberFishDataInTxtFile();
+		rememberFishDataInFile();
 		check = false;
 	}
 
@@ -455,9 +450,11 @@ void startProgram()
 		case 3:
 			if (checkForMatch)
 			{
-				outputFishData();
+				removeFishFromData();
+				startProgram();
 			}
-			else {
+			else 
+			{
 				startProgram();
 			}
 			break;
@@ -564,4 +561,5 @@ void startProgram()
 int main()
 {
 	startProgram();
+	
 }
