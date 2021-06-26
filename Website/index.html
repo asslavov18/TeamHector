@@ -13,13 +13,11 @@
     <header class="out_navbar">
         <a href="index.html"> <img class="logo" src="IMG/logo.png" alt="Logpng" width="170px" height="50">
         </a>
-        <nav>
-            <ul class="navbar">
-                <li><a href="html/gallery.html">our Gallery</a></li>
-                <li><a href="html/info.html">Information</a></li>
-                <li><a href="html/download.html">Download</a></li>
-            </ul>
-        </nav>
+        <div class="container2">
+            <a href="../html/gallery.html">our Gallery</a>
+            <a href="../html/info.html">Introduction</a>
+            <a href="../html/download.html">Download</a>
+        </div>
         <a class="cta" href="html/login.html"><button class=" navbutton">Sign up</button></a>
     </header>
 
@@ -44,13 +42,32 @@
         <div class="image">
             <img src="https://cdn.pixabay.com/photo/2015/11/07/11/41/lake-1031405_1280.jpg">
         </div>
+
         <div class="title">
             <h1>
                 New functions</h1>
         </div>
         <div class="des">
-            <p>You can change your choice only with one click</p>
-            <button class="butt">Read More...</button>
+            <p id="cardtext">You can change your choice only with one click</p>
+            <button class="butt" onclick="showMore()" onmouseout="showLess()">Read More...</button>
+        </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <div class="image">
+            <img src="https://cdn.pixabay.com/photo/2015/11/07/11/41/lake-1031405_1280.jpg">
+        </div>
+        <div class="title">
+            <h1>
+                New functions</h1>
+        </div>
+        <div class="des">
+            <p id="cardtext2">You can change your choice only with one click</p>
+            <button class="butt" onclick="showMore2()" onmouseout="showLess2()">Read More...</button>
         </div>
     </div>
 
@@ -66,32 +83,16 @@
                 New functions</h1>
         </div>
         <div class="des">
-            <p>You can change your choice only with one click</p>
-            <button class="butt">Read More...</button>
-        </div>
-    </div>
-
-
-
-    <div class="card">
-
-        <div class="image">
-            <img src="https://cdn.pixabay.com/photo/2015/11/07/11/41/lake-1031405_1280.jpg">
-        </div>
-        <div class="title">
-            <h1>
-                New functions</h1>
-        </div>
-        <div class="des">
-            <p>You can change your choice only with one click</p>
-            <button class="butt">Read More...</button>
+            <p id="cardtext3">You can change your choice only with one click</p>
+            <button class="butt" onclick="showMore3()" onmouseout="showLess3()">Read More...</button>
         </div>
     </div>
 
     <footer> this is example footer</footer>
 
 
-
+    <script src="../JavaScript/index.js">
+    </script>
 
 
 
