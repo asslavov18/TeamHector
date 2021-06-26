@@ -523,6 +523,7 @@ void startProgram()
 			startProgram();
 			break;
 		}
+		rememberFishDataInFile();
 		startProgram();
 		break;
 
