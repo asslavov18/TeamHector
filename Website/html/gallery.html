@@ -13,16 +13,13 @@
     <header class="out_navbar">
         <a href="../index.html"> <img class="logo" src="../IMG/logo.png" alt="Logpng" width="170px" height="50">
         </a>
-        <nav>
-            <ul class="navbar">
-                <li><a href="../html/gallery.html" class="active_tab">our Gallery</a></li>
-                <li><a href="../html/info.html">Information</a></li>
-                <li><a href="../html/download.html">Download</a></li>
-            </ul>
-        </nav>
+        <div class="container2">
+            <a href="../html/gallery.html">our Gallery</a>
+            <a href="../html/info.html">Introduction</a>
+            <a href="../html/download.html">Download</a>
+        </div>
         <a class="cta" href="../html/login.html"><button class=" navbutton">Sign up</button></a>
     </header>
-
 
     <form id="searchForm">
         <div class="search-cont">
@@ -31,11 +28,49 @@
             <input class="butt_g" value="search" type="submit" onclick="check()">
         </div>
     </form>
+    <div style="text-align:center;">
+        <h2>Tabbed Image Gallery</h2>
+        <p>Click on the images below:</p>
+    </div>
 
+    <div class="row">
+        <div class="column c1">
+            <img src="../img/ydiscuss2.jpg" id="d1c1" style="width:100%" onclick="changeYellowDiscuss();" class="gimg">
+        </div>
+        <div class="column c2 ">
+            <img src="../img/disscus1.jpg " id="d1c2" style="width:100% " onclick="changeBlueDiscuss();" class="gimg">
+        </div>
+        <div class="column c3">
+            <img src="../img/kiss1.jpg " id="d1c3" style="width:100% " onclick="changeKissingGourami();" class="gimg">
+        </div>
+        <div class="column c4 ">
+            <img src="../img/bmolly1.jpg " id="d1c4" style="width:100% " onclick="changeBlackMolly();" class="gimg ">
+        </div>
+        <div class="column c5">
+            <img src="../img/rgp1.jpg " id="d1c5" onclick="changeRoyalGammaPurple();" style="width:100% " class="gimg">
+        </div>
+    </div>
 
+    <div class="row ">
+        <div class="column c21 ">
+            <img src="../img/ptang1.jpg " id="d2c1" onclick="changePurpleTang();" style="width:100% " class="gimg ">
+        </div>
+        <div class="column c22">
+            <img src="../img/cbfish1.jpg" id="d2c2" onclick="changeChromisBlue();" style="width:100% " class="gimg">
+        </div>
+        <div class="column c23 ">
+            <img src="../img/tang1.jpg " id="d2c3" onclick="changeYellowTang();" style="width:100% " class="gimg ">
+        </div>
+        <div class="column c24" onclick="changeAnthiasColorful();" onmouseout="smaller()">
+            <img src="../img/anthias1.jpg " id="d2c4" style="width:100% " class="gimg">
+        </div>
+        <div class="column c25 ">
+            <img src="../img/clown2.jpg " id="d2c5" onclick="changeClownFish();" style="width:100% " class="gimg ">
+        </div>
+    </div>
     <footer> this is example footer</footer>
 
-    <script src="../JavaScript/gallery.js"></script>
-
+    <script src="../JavaScript/gallery.js "></script>
+</body>
 
 </html>
