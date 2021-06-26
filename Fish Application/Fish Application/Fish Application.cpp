@@ -8,7 +8,8 @@ using namespace std;
 ofstream inputData("FishData.txt");
 ifstream outputData("FishData.txt");
 bool checkForMatch = false;
-int fishPostion=0;
+int fishPostion=10;
+bool check = true;
 
 struct FISH_DATA {
 	string name;
@@ -17,7 +18,23 @@ struct FISH_DATA {
 	string euryhaline;
 };
 
-FISH_DATA fishes[100];
+FISH_DATA fishes[100] = { 
+	{"Yellow Discuss", "Yellow",13,"Fresh Water"},{"Chromis","Blue",13,"Salt Water"},{"Anthias","Colurful",3,"Salt Water"},
+	{"Royal Gramma","Purple",5,"Fresh Water"},{"Kissing Gourami","Orange",6,"Fresh Water"},{"Yellow Tang","Yellow",30,"Salt Water"},
+	{"Clown Fish","Orange",4,"Salt Water"},{"Black Molly","Black",3,"Fresh Water"},{"Purple Tang","Purple",25,"Salt Water"},
+	{"Blue Discuss","Blue", 10, "Fresh Water"}
+};
+
+void rememberFishDataInTxtFile()
+{
+	for(int i = 0; i < fishPostion; i++)
+	{
+		inputData << fishes[i].name<<" ";
+		inputData << fishes[i].color<<" ";
+		inputData << fishes[i].lifeTime<<" ";
+		inputData << fishes[i].euryhaline<<endl;
+	}
+}
 
 bool setColor(WORD newColor)
 {
@@ -58,6 +75,7 @@ void printMenu()
 	{
 		printf("6. Login as admin\n");
 	}
+	printf("0. Exit\n");
 
 	printf("\nEnter your choice: ");
 	
@@ -67,6 +85,7 @@ void inputFishData()
 {
 	cin.ignore();
 	system("cls");
+
 
 	printf("Enter Fish Name: ");
 
@@ -81,16 +100,17 @@ void inputFishData()
 	printf("Enter Fish Lifetime: ");
 
 	cin >> fishes[fishPostion].lifeTime;
-	inputData << fishes[fishPostion].lifeTime<<endl;
+	inputData << fishes[fishPostion].lifeTime<<" ";
+	cin.ignore();
 
 	printf("Enter Fish Euryhaline: ");
 
-	cin >> fishes[fishPostion].euryhaline;
+	getline(cin,fishes[fishPostion].euryhaline);
 	inputData << fishes[fishPostion].euryhaline << endl;
 
 	fishPostion++;
 
-	cin.ignore();
+	
 }
 
 void outputFishData()
@@ -250,10 +270,11 @@ void printSortingMenu()
 	printf("2. Sort by name alphabetically reversed\n");
 	printf("3. Sort by color alphabetically\n");
 	printf("4. Sort by color alphabetically reversed\n");
-	printf("5. Sort by age largest to smallest\n");
-	printf("6. Sort by age smallest to largest\n");
+	printf("5. Sort by lifetime largest to smallest\n");
+	printf("6. Sort by lifetime smallest to largest\n");
 	printf("7. Sort by euryhaline alphabetically\n");
 	printf("8. Sort by euryhaline alphabetically reversed\n");
+	printf("0. Return to the main menu\n");
 	
 	printf("\nEnter your choice: ");
 }
@@ -286,6 +307,12 @@ void checkForMatchAdminData()
 
 void startProgram()
 {
+	if (check)
+	{
+		rememberFishDataInTxtFile();
+		check = false;
+	}
+
 	int* choice = new int;
 	printMenu();
 	cin >> *choice;
@@ -356,6 +383,10 @@ void startProgram()
 						sortByEuryhalineAlpabeticallyReversed();
 						break;
 
+						case 0:
+						startProgram();
+						break;
+
 						default:
 						startProgram();
 						break;
@@ -370,6 +401,9 @@ void startProgram()
 			checkForMatchAdminData();
 			startProgram();
 			break;
+
+		case 0:
+			exit(1);
 
 		default:
 			startProgram();
