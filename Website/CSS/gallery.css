@@ -142,3 +142,42 @@ body {
     font-size: 35px;
     cursor: pointer;
 }
+
+.c1,
+.c3,
+.c5,
+.c22,
+.c24 {
+    animation-name: anim2;
+    animation-duration: 3s;
+    animation-iteration-count: 100;
+}
+
+.c2,
+.c4,
+.c21,
+.c23,
+.c25 {
+    animation-name: anim2;
+    animation-duration: 3s;
+    animation-iteration-count: 100;
+}
+
+.gimg {
+    border-radius: 20px;
+}
+
+@keyframes anim2 {
+    0% {
+        box-shadow: 2px 2px 20px rgba(1, 151, 21, 0.76);
+        border-radius: 20px;
+    }
+    50% {
+        box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.74);
+        border-radius: 20px;
+    }
+    100% {
+        box-shadow: 2px 2px 20px rgba(1, 151, 21, 0.719);
+        border-radius: 20px;
+    }
+}
