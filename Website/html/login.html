@@ -17,13 +17,11 @@
     <header class="out_navbar" style="margin-bottom: 2%;">
         <a href="../index.html"> <img class="logo" src="../img/logo.png" alt="Logpng" width="170px" height="50">
         </a>
-        <nav>
-            <ul class="navbar">
-                <li><a href="../html/gallery.html">our Gallery</a></li>
-                <li><a href="../html/info.html">Information</a></li>
-                <li><a href="../html/download.html">Download</a></li>
-            </ul>
-        </nav>
+        <div class="container2">
+            <a href="../html/gallery.html">our Gallery</a>
+            <a href="../html/info.html">Introduction</a>
+            <a href="../html/download.html">Download</a>
+        </div>
         <a class="cta" href="../html/login.html"><button class=" navbutton">Sign up</button></a>
     </header>
     <img src="../img/bac.png" style="margin-bottom: -720px; opacity: 80%; filter: blur(7px);">
@@ -33,31 +31,32 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>
-                    <form id="registerForm" method="POST" name="registration" onsubmit="return validateForm();">
-                    <div class="form-group">
-                        <label for="name"><img src="../img/username_logo.png" width="20px" class="uname_img" id="imgName"></label>
-                        <input class="input_s" type="text" name="name" id="name" placeholder="Your Name" required/>
-                    </div>
-                    <div class="form-group">
-                        <label for="email"><img src="../img/mail_logo.png" width="20px" class="uname_img" id="imgEmail"></label>
-                        <input class="input_s" type="email" name="email" id="email" placeholder="Your Email" oninput="emailExist(this)" required/>
-                    </div>
-                    <div class="form-group">
-                        <label for="pass"><img src="../img/password_logo.png" width="20px" class="uname_img" id="imgPass"></label>
-                        <div class="view"><img id="imgView1" src="../img/view.png" onclick="hideAndShowPass()"></div>
-                        <input class="input_s" id="pass1" type="password" placeholder="Password" required/>
-                    </div>
-                    <div class="form-group">
-                        <label for="re-pass"><img src="../img/password_logo.png" id="imgRePass" width="20px" class="uname_img" ></i></label>
-                        <div class="view"><img id="imgView2" onclick="hideAndShowPassConfirm()" src="../img/view.png"></div>
-                        <input class="input_s" id="pass2" type="password"   placeholder="Repeat your password" oninput="verifyPassword(this)" required/>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="terms" name="terms" value="agreement" required>
-                        <label for="terms" id="termsText"> I agree all statements in Terms of <br>service</label><br><br> </div>
-                    <div class="form-group form-button">
-                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register" onclick="check()" />
-                    </div>
+                    <form id="registerForm" method="POST" name="registration">
+                        <div class="form-group">
+                            <label for="name"><img src="../img/username_logo.png" width="20px" class="uname_img" id="imgName"></label>
+                            <input class="input_s" id="nameinp" type="text" name="name" id="name" placeholder="Your Name" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email"><img src="../img/mail_logo.png" width="20px" class="uname_img" id="imgEmail"></label>
+                            <input class="input_s" type="email" name="email" id="email" placeholder="Your Email" oninput="emailExist(this)" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><img src="../img/password_logo.png" width="20px" class="uname_img" id="imgPass"></label>
+                            <div class="view"><img id="imgView1" src="../img/view.png" onclick="hideAndShowPass()"></div>
+                            <input class="input_s" id="pass1" type="password" placeholder="Password" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="re-pass"><img src="../img/password_logo.png" id="imgRePass" width="20px" class="uname_img" ></i></label>
+                            <div class="view"><img id="imgView2" onclick="hideAndShowPassConfirm()" src="../img/view.png"></div>
+                            <input class="input_s" id="pass2" type="password" placeholder="Repeat your password" oninput="verifyPassword(this)" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="terms" name="terms" value="agreement" required>
+                            <label for="terms" id="termsText"> I agree all statements in Terms of <br>service</label><br><br> </div>
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register" onclick="check()" />
+                        </div>
                     </form>
                 </div>
                 <div class="signup-image">

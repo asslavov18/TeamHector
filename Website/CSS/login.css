@@ -1,8 +1,7 @@
-.view{
-    width: 40px;
+.view {
+    width: 21.5px;
     display: inline-block;
     position: absolute;
-    cursor:pointer;
-    margin-left:80px;
-    margin-top:-5px;
+    cursor: pointer;
+    margin-left: 80px;
 }
