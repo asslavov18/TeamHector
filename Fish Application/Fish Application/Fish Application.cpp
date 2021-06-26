@@ -131,7 +131,19 @@ void outputFishData()
 	cin.ignore();
 }
 
+void removeFishFromData()
+{
+	int choice;
+	outputFishData();
+	printf("Enter a number row you want to remove: ");
+	cin >> choice;
+	fishPostion--;
+	for (int i = choice - 1; i < fishPostion; i++)
+		fishes[i] = fishes[i + 1];
 
+	outputFishData();
+	rememberFishDataInFile();
+}
 
 
 FISH_DATA sortByNameAlphabetically()
@@ -419,12 +431,7 @@ void checkForMatchAdminData()
 
 void startProgram()
 {
-	if (check)
-	{
-		rememberFishDataInFile();
-		check = false;
-	}
-
+	rememberFishDataInFile();
 	int* choice = new int;
 	printMenu();
 	cin >> *choice;
