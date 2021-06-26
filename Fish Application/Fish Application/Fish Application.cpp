@@ -131,7 +131,7 @@ void removeFishFromData()
 	printf("\nEnter 0 to return to the main menu");
 	printf("\n\nEnter a number row you want to remove: ");
 	cin >> choice;
-	
+
 	while (choice != 0)
 	{
 		fishPostion--;
@@ -144,8 +144,8 @@ void removeFishFromData()
 		printf("\n\nEnter a number row you want to remove: ");
 		cin >> choice;
 		rememberFishDataInFile();
-	}	
-	
+	}
+
 }
 
 
