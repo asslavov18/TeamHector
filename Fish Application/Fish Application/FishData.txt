@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Yellow Discuss Yellow 13 Fresh Water
 Chromis Blue 13 Salt Water
 Anthias Colurful 3 Salt Water
@@ -9,5 +8,3 @@ Clown Fish Orange 4 Salt Water
 Black Molly Black 3 Fresh Water
 Purple Tang Purple 25 Salt Water
 Blue Discuss Blue 10 Fresh Water
-=======
->>>>>>> d9e283f293b5508eab4f52f066c41308e3091dde

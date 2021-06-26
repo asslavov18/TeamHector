@@ -114,8 +114,7 @@ void inputFishData()
 void outputFishData()
 {
 	system("cls");
-	string data;
-	int fishNumber = 1;
+	int fishNumber=1;
 
 	for (int i = 0; i < fishPostion; i++)
 	{
@@ -127,24 +126,26 @@ void outputFishData()
 void removeFishFromData()
 {
 	outputFishData();
-	int choice;
+	int* choice=new int;
 	printf("\nEnter 0 to return to the main menu");
 	printf("\n\nEnter a number row you want to remove: ");
-	cin >> choice;
+	cin >> *choice;
 
-	while (choice != 0)
+	while (*choice != 0)
 	{
 		fishPostion--;
-		for (int i = choice - 1; i < fishPostion; i++)
+		for (int i = *choice - 1; i < fishPostion; i++)
 		{
 			fishes[i] = fishes[i + 1];
 		}
 		outputFishData();
 		printf("\nEnter 0 to return to the main menu");
 		printf("\n\nEnter a number row you want to remove: ");
-		cin >> choice;
+		cin >> *choice;
 		rememberFishDataInFile();
 	}
+
+	delete choice;
 
 }
 
@@ -291,7 +292,7 @@ void printSortingMenu()
 
 string choiceToFind;
 int choiceToFindForLifetime;
-int findChoice;
+int* findChoice=new int;
 void printFindingByParametersMenu()
 {
 	system("cls");
@@ -308,27 +309,27 @@ void printFindByMenu()
 {
 	cin.ignore();
 	system("cls");
-	if (findChoice == 1)
+	if (*findChoice == 1)
 	{
 
 		printf("Enter a fish name: ");
 		getline(cin, choiceToFind);
 	}
 
-	if (findChoice == 2)
+	if (*findChoice == 2)
 	{
 
 		printf("Enter a fish color: ");
 		getline(cin, choiceToFind);
 	}
 
-	if (findChoice == 3)
+	if (*findChoice == 3)
 	{
 		printf("Enter a fish lifetime: ");
 		cin >> choiceToFindForLifetime;
 	}
 
-	if (findChoice == 4)
+	if (*findChoice == 4)
 	{
 
 		printf("Enter a fish euryhaline: ");
@@ -351,12 +352,13 @@ void printFoundByName()
 
 	cout << endl << "Press Enter to escape: ";
 	cin.get();
+
 }
 
 void printFoundByColor()
 {
 	system("cls");
-	int fishNumber = 1;
+	int fishNumber =1;
 	for (int i = 0; i < fishPostion; i++)
 	{
 		if (choiceToFind == fishes[i].color)
@@ -410,14 +412,14 @@ void checkForMatchAdminData()
 	system("cls");
 	cin.ignore();
 	int counter = 0;
-	string outputData;
-	string inputCheckData;
+	string* outputData=new string;
+	string* inputCheckData=new string;
 	ifstream adminData("AdminData.txt");
 	printf("Enter admin email: ");
-	while (getline(adminData, outputData))
+	while (getline(adminData, *outputData))
 	{
-		getline(cin, inputCheckData);
-		if (outputData == inputCheckData)
+		getline(cin, *inputCheckData);
+		if (*outputData == *inputCheckData)
 		{
 			counter++;
 		}
@@ -429,6 +431,9 @@ void checkForMatchAdminData()
 	{
 		checkForMatch = true;
 	}
+
+	delete outputData;
+	delete inputCheckData;;
 }
 
 
@@ -523,8 +528,8 @@ void startProgram()
 
 	case 5:
 		printFindingByParametersMenu();
-		cin >> findChoice;
-		switch (findChoice)
+		cin >> *findChoice;
+		switch (*findChoice)
 		{
 		case 1:
 			printFindByMenu();
@@ -569,6 +574,7 @@ void startProgram()
 	}
 
 	delete choice;
+	delete findChoice;
 }
 
 int main()
