@@ -5,10 +5,10 @@
 #include <Windows.h>
 using namespace std;
 
-ofstream inputData("FishData.txt");
+ofstream inputData;
 ifstream outputData("FishData.txt");
 bool checkForMatch = false;
-int fishPostion=10;
+int fishPostion = 10;
 bool check = true;
 
 struct FISH_DATA {
@@ -18,21 +18,22 @@ struct FISH_DATA {
 	string euryhaline;
 };
 
-FISH_DATA fishes[100] = { 
+FISH_DATA fishes[100] = {
 	{"Yellow Discuss", "Yellow",13,"Fresh Water"},{"Chromis","Blue",13,"Salt Water"},{"Anthias","Colurful",3,"Salt Water"},
 	{"Royal Gramma","Purple",5,"Fresh Water"},{"Kissing Gourami","Orange",6,"Fresh Water"},{"Yellow Tang","Yellow",30,"Salt Water"},
 	{"Clown Fish","Orange",4,"Salt Water"},{"Black Molly","Black",3,"Fresh Water"},{"Purple Tang","Purple",25,"Salt Water"},
 	{"Blue Discuss","Blue", 10, "Fresh Water"}
 };
 
-void rememberFishDataInTxtFile()
+void rememberFishDataInFile()
 {
-	for(int i = 0; i < fishPostion; i++)
+	inputData.open("FishData.txt", ofstream::trunc);
+	for (int i = 0; i < fishPostion; i++)
 	{
-		inputData << fishes[i].name<<" ";
-		inputData << fishes[i].color<<" ";
-		inputData << fishes[i].lifeTime<<" ";
-		inputData << fishes[i].euryhaline<<endl;
+		inputData << fishes[i].name << " ";
+		inputData << fishes[i].color << " ";
+		inputData << fishes[i].lifeTime << " ";
+		inputData << fishes[i].euryhaline << endl;
 	}
 }
 
@@ -54,7 +55,7 @@ void printMenu()
 	setColor(FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	printf("1. Show fish data\n");
 	setColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
-	if (setColor(FOREGROUND_RED | FOREGROUND_INTENSITY)&&checkForMatch==false)
+	if (setColor(FOREGROUND_RED | FOREGROUND_INTENSITY) && checkForMatch == false)
 	{
 		printf("2. Add fish data (Administration permissions needed!)\n");
 		printf("3. Remove fish data (Administration permissions needed!)\n");
@@ -78,7 +79,7 @@ void printMenu()
 	printf("0. Exit\n");
 
 	printf("\nEnter your choice: ");
-	
+
 }
 
 void inputFishData()
@@ -86,31 +87,28 @@ void inputFishData()
 	cin.ignore();
 	system("cls");
 
-
 	printf("Enter Fish Name: ");
 
-	getline(cin,fishes[fishPostion].name);
-	inputData << fishes[fishPostion].name<<" ";
+	getline(cin, fishes[fishPostion].name);
 
 	printf("Enter Fish Color: ");
 
 	getline(cin, fishes[fishPostion].color);
-	inputData << fishes[fishPostion].color << " ";
 
 	printf("Enter Fish Lifetime: ");
 
 	cin >> fishes[fishPostion].lifeTime;
-	inputData << fishes[fishPostion].lifeTime<<" ";
 	cin.ignore();
 
 	printf("Enter Fish Euryhaline: ");
 
-	getline(cin,fishes[fishPostion].euryhaline);
-	inputData << fishes[fishPostion].euryhaline << endl;
+	getline(cin, fishes[fishPostion].euryhaline);
+
+	rememberFishDataInFile();
 
 	fishPostion++;
 
-	
+
 }
 
 void outputFishData()
@@ -121,22 +119,34 @@ void outputFishData()
 
 	for (int i = 0; i < fishPostion; i++)
 	{
-		cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: "<<fishes[i].euryhaline<< endl;
+		cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
 		fishNumber++;
 	}
-
-	cout << endl << "Press Enter to escape: ";
-	cin.get();
-	cin.ignore();
 }
 
-/*void removeFishData()
+void removeFishFromData()
 {
-	int* choice = new int;
 	outputFishData();
-	printf("Enter a number row you want to remove: ");
-	cin >> *choice;
-}*/
+	int choice;
+	printf("\nEnter 0 to return to the main menu");
+	printf("\n\nEnter a number row you want to remove: ");
+	cin >> choice;
+	
+	while (choice != 0)
+	{
+		fishPostion--;
+		for (int i = choice - 1; i < fishPostion; i++)
+		{
+			fishes[i] = fishes[i + 1];
+		}
+		outputFishData();
+		printf("\nEnter 0 to return to the main menu");
+		printf("\n\nEnter a number row you want to remove: ");
+		cin >> choice;
+		rememberFishDataInFile();
+	}	
+	
+}
 
 
 FISH_DATA sortByNameAlphabetically()
@@ -275,7 +285,7 @@ void printSortingMenu()
 	printf("7. Sort by euryhaline alphabetically\n");
 	printf("8. Sort by euryhaline alphabetically reversed\n");
 	printf("0. Return to the main menu\n");
-	
+
 	printf("\nEnter your choice: ");
 }
 
@@ -300,14 +310,14 @@ void printFindByMenu()
 	system("cls");
 	if (findChoice == 1)
 	{
-		
+
 		printf("Enter a fish name: ");
 		getline(cin, choiceToFind);
 	}
 
 	if (findChoice == 2)
 	{
-	
+
 		printf("Enter a fish color: ");
 		getline(cin, choiceToFind);
 	}
@@ -320,7 +330,7 @@ void printFindByMenu()
 
 	if (findChoice == 4)
 	{
-	
+
 		printf("Enter a fish euryhaline: ");
 		getline(cin, choiceToFind);
 	}
@@ -407,12 +417,12 @@ void checkForMatchAdminData()
 	while (getline(adminData, outputData))
 	{
 		getline(cin, inputCheckData);
-		if (outputData==inputCheckData)
+		if (outputData == inputCheckData)
 		{
 			counter++;
 		}
 		printf("Enter admin password: ");
-		
+
 	}
 
 	if (counter == 2)
@@ -424,11 +434,7 @@ void checkForMatchAdminData()
 
 void startProgram()
 {
-	if (check)
-	{
-		rememberFishDataInTxtFile();
-		check = false;
-	}
+	rememberFishDataInFile();
 
 	int* choice = new int;
 	printMenu();
@@ -436,126 +442,130 @@ void startProgram()
 
 	switch (*choice)
 	{
-		case 1:
+	case 1:
 		outputFishData();
+		cout << endl << "Press Enter to escape: ";
+		cin.get();
+		cin.ignore();
 		startProgram();
 		break;
 
+	case 2:
+		if (checkForMatch)
+		{
+			inputFishData();
+			startProgram();
+		}
+		else {
+			startProgram();
+		}
+		break;
+
+	case 3:
+		if (checkForMatch)
+		{
+			removeFishFromData();
+			startProgram();
+		}
+		else {
+			startProgram();
+		}
+		break;
+
+	case 4:
+		int sortChoice;
+		printSortingMenu();
+		cin >> sortChoice;
+		switch (sortChoice)
+		{
+		case 1:
+			sortByNameAlphabetically();
+			break;
+
 		case 2:
-			if (checkForMatch)
-			{
-				inputFishData();
-				startProgram();
-			}
-			else {
-				startProgram();
-			}
+			sortByNameAlphabeticallyReversed();
 			break;
 
 		case 3:
-			if (checkForMatch)
-			{
-				outputFishData();
-			}
-			else {
-				startProgram();
-			}
+			sortByColorAlpabetically();
 			break;
-			
+
 		case 4:
-			int sortChoice;
-			printSortingMenu();
-			cin >> sortChoice;
-				switch (sortChoice)
-				{
-						case 1:
-						sortByNameAlphabetically();
-						break;
-
-						case 2:
-						sortByNameAlphabeticallyReversed();
-						break;
-
-						case 3:
-						sortByColorAlpabetically();
-						break;
-
-						case 4:
-						sortByColorAlpabeticallyReversed();
-						break;
-
-						case 5:
-						sortByLifetimeLargestToSmallest();
-						break;
-
-						case 6:
-						sortByLifetimeSmallestToLargest();
-						break;
-
-						case 7:
-						sortByEuryhalineAlpabetically();
-						break;
-
-						case 8:
-						sortByEuryhalineAlpabeticallyReversed();
-						break;
-
-						case 0:
-						startProgram();
-						break;
-
-						default:
-						startProgram();
-						break;
-				}
-			startProgram();
+			sortByColorAlpabeticallyReversed();
 			break;
 
 		case 5:
-			printFindingByParametersMenu();
-			cin >> findChoice;
-				switch (findChoice)
-				{
-					case 1:
-					printFindByMenu();
-					printFoundByName();
-					break;
-
-					case 2:
-					printFindByMenu();
-					printFoundByColor();
-					break;
-
-					case 3:
-					printFindByMenu();
-					printFoundByLifeTime();
-					break;
-
-					case 4:
-					printFindByMenu();
-					printFoundByEuryhaline();
-					break;
-					
-					case 0:
-					break;
-
-					default:
-					break;
-				}
-				startProgram();
+			sortByLifetimeLargestToSmallest();
 			break;
 
 		case 6:
-			checkForMatchAdminData();
-			startProgram();
+			sortByLifetimeSmallestToLargest();
+			break;
+
+		case 7:
+			sortByEuryhalineAlpabetically();
+			break;
+
+		case 8:
+			sortByEuryhalineAlpabeticallyReversed();
 			break;
 
 		case 0:
-			exit(1);
+			startProgram();
+			break;
 
 		default:
 			startProgram();
 			break;
+		}
+		startProgram();
+		break;
+
+	case 5:
+		printFindingByParametersMenu();
+		cin >> findChoice;
+		switch (findChoice)
+		{
+		case 1:
+			printFindByMenu();
+			printFoundByName();
+			break;
+
+		case 2:
+			printFindByMenu();
+			printFoundByColor();
+			break;
+
+		case 3:
+			printFindByMenu();
+			printFoundByLifeTime();
+			break;
+
+		case 4:
+			printFindByMenu();
+			printFoundByEuryhaline();
+			break;
+
+		case 0:
+			break;
+
+		default:
+			break;
+		}
+		startProgram();
+		break;
+
+	case 6:
+		checkForMatchAdminData();
+		startProgram();
+		break;
+
+	case 0:
+		exit(1);
+
+	default:
+		startProgram();
+		break;
 	}
 
 	delete choice;
