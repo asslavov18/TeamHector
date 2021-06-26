@@ -14,6 +14,7 @@ struct FISH_DATA {
 	string name;
 	string color;
 	int lifeTime;
+	string euryhaline;
 };
 
 FISH_DATA fishes[100];
@@ -82,6 +83,11 @@ void inputFishData()
 	cin >> fishes[fishPostion].lifeTime;
 	inputData << fishes[fishPostion].lifeTime<<endl;
 
+	printf("Enter Fish Euryhaline: ");
+
+	cin >> fishes[fishPostion].euryhaline;
+	inputData << fishes[fishPostion].euryhaline << endl;
+
 	fishPostion++;
 
 	cin.ignore();
@@ -95,7 +101,7 @@ void outputFishData()
 
 	for (int i = 0; i < fishPostion; i++)
 	{
-		cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << endl;
+		cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: "<<fishes[i].euryhaline<< endl;
 		fishNumber++;
 	}
 
@@ -207,6 +213,36 @@ FISH_DATA sortByLifetimeSmallestToLargest()
 	return fishes[fishPostion];
 }
 
+FISH_DATA sortByEuryhalineAlpabetically()
+{
+	for (int i = 0; i < fishPostion; i++)
+	{
+		for (int j = 0; j < fishPostion - 1; j++)
+		{
+			if (fishes[j].euryhaline >= fishes[j + 1].euryhaline) {
+				swap(fishes[j], fishes[j + 1]);
+			}
+		}
+	}
+
+	return fishes[fishPostion];
+}
+
+FISH_DATA sortByEuryhalineAlpabeticallyReversed()
+{
+	for (int i = 0; i < fishPostion; i++)
+	{
+		for (int j = 0; j < fishPostion - 1; j++)
+		{
+			if (fishes[j].euryhaline <= fishes[j + 1].euryhaline) {
+				swap(fishes[j], fishes[j + 1]);
+			}
+		}
+	}
+
+	return fishes[fishPostion];
+}
+
 void printSortingMenu()
 {
 	system("cls");
@@ -216,6 +252,8 @@ void printSortingMenu()
 	printf("4. Sort by color alphabetically reversed\n");
 	printf("5. Sort by age largest to smallest\n");
 	printf("6. Sort by age smallest to largest\n");
+	printf("7. Sort by euryhaline alphabetically\n");
+	printf("8. Sort by euryhaline alphabetically reversed\n");
 	
 	printf("\nEnter your choice: ");
 }
@@ -308,6 +346,14 @@ void startProgram()
 
 						case 6:
 						sortByLifetimeSmallestToLargest();
+						break;
+
+						case 7:
+						sortByEuryhalineAlpabetically();
+						break;
+
+						case 8:
+						sortByEuryhalineAlpabeticallyReversed();
 						break;
 
 						default:
