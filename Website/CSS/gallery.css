@@ -1,183 +1,180 @@
-#overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(36, 36, 36, 0.884);
-    z-index: 1;
-    cursor: pointer;
-}
-
-#text {
-    padding: 30px;
-    border: solid black;
-    background-image: url(../img/bac.png);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    color: white;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    z-index: 1;
-}
-
-.butt_g {
-    border-width: 2px;
-    border-color: rgba(3, 100, 211, 0);
-    background-color: rgb(7, 114, 201);
-    color: white;
-    cursor: pointer;
-    margin-top: 40px;
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-    margin-bottom: 10px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin-left: -5px;
-    padding: 18px;
-    width: 8%;
-    box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.582);
-}
-
-.butt_g:hover {
-    color: rgb(48, 152, 248);
-    box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.705);
-}
-
-.b {
-    box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.582);
-    border: none;
-    padding: 18px;
-    margin-left: 24%;
-    width: 44%;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    margin-bottom: 10%;
-    margin-top: 5%;
-    outline: none;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial;
-}
-
-.gallery {
-    background-color: yellow;
-}
-
-.column {
-    float: left;
-    width: 19.6%;
-    margin: 0.2%;
-    padding: 10px;
-}
-
-.c2,
-.c4 {
-    margin-top: 60px;
-}
-
-.c22,
-.c24 {
-    margin-top: -56px;
-}
-
-.c3 {
-    margin-top: 120px;
-}
-
-.c21,
-.c25 {
-    margin-top: -113px;
-}
-
-.column img {
-    opacity: 0.;
-    cursor: pointer;
-}
-
-.column img:hover {
-    opacity: 1;
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.container {
-    position: relative;
-    display: none;
-}
-
-#imgtext {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    color: white;
-    font-size: 20px;
-}
-
-.closebtn {
-    position: absolute;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: -20px;
-    padding-bottom: -10px;
-    top: 10px;
-    right: 15px;
-    color: black;
-    font-size: 35px;
-    cursor: pointer;
-}
-
-.c1,
-.c3,
-.c5,
-.c22,
-.c24 {
-    animation-name: anim2;
-    animation-duration: 3s;
-    animation-iteration-count: 100;
-}
-
-.c2,
-.c4,
-.c21,
-.c23,
-.c25 {
-    animation-name: anim2;
-    animation-duration: 3s;
-    animation-iteration-count: 100;
-}
-
-.gimg {
-    border-radius: 20px;
-}
-
-@keyframes anim2 {
-    0% {
-        box-shadow: 2px 2px 20px rgba(1, 151, 21, 0.76);
-        border-radius: 20px;
-    }
-    50% {
-        box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.74);
-        border-radius: 20px;
-    }
-    100% {
-        box-shadow: 2px 2px 20px rgba(1, 151, 21, 0.719);
-        border-radius: 20px;
-    }
-}
+  #overlay {
+      position: fixed;
+      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(36, 36, 36, 0.884);
+      z-index: 1;
+      cursor: pointer;
+  }
+  
+  #text {
+      padding: 30px;
+      border: solid black;
+      background-image: url(../img/bac.png);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 50px;
+      color: white;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      z-index: 1;
+  }
+  
+  .butt_g {
+      border-width: 2px;
+      border-color: rgba(3, 100, 211, 0);
+      background-color: rgb(7, 114, 201);
+      color: white;
+      cursor: pointer;
+      margin-top: 40px;
+      border-right: none;
+      border-top: none;
+      border-bottom: none;
+      margin-bottom: 10px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      margin-left: -5px;
+      padding: 18px;
+      width: 8%;
+      box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.582);
+  }
+  
+  .butt_g:hover {
+      color: rgb(48, 152, 248);
+      box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.705);
+  }
+  
+  .b {
+      box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.582);
+      border: none;
+      padding: 18px;
+      margin-left: 24%;
+      width: 44%;
+      border-bottom-left-radius: 20px;
+      border-top-left-radius: 20px;
+      margin-bottom: 10%;
+      margin-top: 5%;
+      outline: none;
+  }
+  
+  .gallery {
+      background-color: yellow;
+  }
+  /* The grid: Four equal columns that floats next to each other */
+  
+  .column {
+      float: left;
+      width: 18.4%;
+      margin: 0.2%;
+      padding: 10px;
+  }
+  /* Style the images inside the grid */
+  
+  .c2,
+  .c4 {
+      margin-top: 60px;
+  }
+  
+  .c22,
+  .c24 {
+      margin-top: -56px;
+  }
+  
+  .c3 {
+      margin-top: 120px;
+  }
+  
+  .c21,
+  .c25 {
+      margin-top: -113px;
+  }
+  
+  .column img {
+      opacity: 0.;
+      cursor: pointer;
+  }
+  
+  .column img:hover {
+      opacity: 1;
+  }
+  /* Clear floats after the columns */
+  
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  /* The expanding image container */
+  
+  .container {
+      position: relative;
+      display: none;
+  }
+  /* Expanding image text */
+  
+  #imgtext {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      color: white;
+      font-size: 20px;
+  }
+  /* Closable button inside the expanded image */
+  
+  .closebtn {
+      position: absolute;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: -20px;
+      padding-bottom: -10px;
+      top: 10px;
+      right: 15px;
+      color: black;
+      font-size: 35px;
+      cursor: pointer;
+  }
+  
+  .c1,
+  .c3,
+  .c5,
+  .c22,
+  .c24 {
+      animation-name: anim2;
+      animation-duration: 3s;
+      animation-iteration-count: 100;
+  }
+  
+  .c2,
+  .c4,
+  .c21,
+  .c23,
+  .c25 {
+      animation-name: anim2;
+      animation-duration: 3s;
+      animation-iteration-count: 100;
+  }
+  
+  .gimg {
+      border-radius: 20px;
+  }
+  
+  @keyframes anim2 {
+      0% {
+          box-shadow: 2px 2px 20px rgba(1, 151, 21, 0.76);
+          border-radius: 20px;
+      }
+      50% {
+          box-shadow: 2px 2px 20px rgba(0, 94, 131, 0.74);
+          border-radius: 20px;
+      }
+      100% {
+          box-shadow: 2px 2px 20px rgba(1, 151, 21, 0.719);
+          border-radius: 20px;
+      }
+  }
