@@ -279,9 +279,126 @@ void printSortingMenu()
 	printf("\nEnter your choice: ");
 }
 
+string choiceToFind;
+int choiceToFindForLifetime;
+int findChoice;
+void printFindingByParametersMenu()
+{
+	system("cls");
+	printf("1. Find by name\n");
+	printf("2. Find by color\n");
+	printf("3. Find by lifetime\n");
+	printf("4. Find by euryhaline\n");
+	printf("0. Return to the main menu\n");
+
+	printf("\nEnter your choice: ");
+}
+
+void printFindByMenu()
+{
+	cin.ignore();
+	system("cls");
+	if (findChoice == 1)
+	{
+		
+		printf("Enter a fish name: ");
+		getline(cin, choiceToFind);
+	}
+
+	if (findChoice == 2)
+	{
+	
+		printf("Enter a fish color: ");
+		getline(cin, choiceToFind);
+	}
+
+	if (findChoice == 3)
+	{
+		printf("Enter a fish lifetime: ");
+		cin >> choiceToFindForLifetime;
+	}
+
+	if (findChoice == 4)
+	{
+	
+		printf("Enter a fish euryhaline: ");
+		getline(cin, choiceToFind);
+	}
+}
+
+void printFoundByName()
+{
+	system("cls");
+	int fishNumber = 1;
+	for (int i = 0; i < fishPostion; i++)
+	{
+		if (choiceToFind == fishes[i].name)
+		{
+			cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
+			fishNumber++;
+		}
+	}
+
+	cout << endl << "Press Enter to escape: ";
+	cin.get();
+}
+
+void printFoundByColor()
+{
+	system("cls");
+	int fishNumber = 1;
+	for (int i = 0; i < fishPostion; i++)
+	{
+		if (choiceToFind == fishes[i].color)
+		{
+			cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
+			fishNumber++;
+		}
+	}
+
+	cout << endl << "Press Enter to escape: ";
+	cin.get();
+}
+
+void printFoundByLifeTime()
+{
+	cin.ignore();
+	system("cls");
+	int fishNumber = 1;
+	for (int i = 0; i < fishPostion; i++)
+	{
+		if (choiceToFindForLifetime == fishes[i].lifeTime)
+		{
+			cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
+			fishNumber++;
+		}
+	}
+
+	cout << endl << "Press Enter to escape: ";
+	cin.get();
+}
+
+void printFoundByEuryhaline()
+{
+	system("cls");
+	int fishNumber = 1;
+	for (int i = 0; i < fishPostion; i++)
+	{
+		if (choiceToFind == fishes[i].euryhaline)
+		{
+			cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
+			fishNumber++;
+		}
+	}
+
+	cout << endl << "Press Enter to escape: ";
+	cin.get();
+}
+
 void checkForMatchAdminData()
 {
 	system("cls");
+	cin.ignore();
 	int counter = 0;
 	string outputData;
 	string inputCheckData;
@@ -289,7 +406,7 @@ void checkForMatchAdminData()
 	printf("Enter admin email: ");
 	while (getline(adminData, outputData))
 	{
-		cin >> inputCheckData;
+		getline(cin, inputCheckData);
 		if (outputData==inputCheckData)
 		{
 			counter++;
@@ -395,6 +512,37 @@ void startProgram()
 			break;
 
 		case 5:
+			printFindingByParametersMenu();
+			cin >> findChoice;
+				switch (findChoice)
+				{
+					case 1:
+					printFindByMenu();
+					printFoundByName();
+					break;
+
+					case 2:
+					printFindByMenu();
+					printFoundByColor();
+					break;
+
+					case 3:
+					printFindByMenu();
+					printFoundByLifeTime();
+					break;
+
+					case 4:
+					printFindByMenu();
+					printFoundByEuryhaline();
+					break;
+					
+					case 0:
+					break;
+
+					default:
+					break;
+				}
+				startProgram();
 			break;
 
 		case 6:

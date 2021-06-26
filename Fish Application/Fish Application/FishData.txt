@@ -8,5 +8,4 @@ Clown Fish Orange 4 Salt Water
 Black Molly Black 3 Fresh Water
 Purple Tang Purple 25 Salt Water
 Blue Discuss Blue 10 Fresh Water
-Riba Nova Brown 999 Fresh Water
-Riba Nova2 Red 322 Salt Water
+Riba Nova Red 999 Salt Water
