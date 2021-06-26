@@ -8,127 +8,19 @@
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
 
-
-<style>
-    #overlay {
-        position: fixed;
-        display: none;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(36, 36, 36, 0.884);
-        z-index: 1;
-        cursor: pointer;
-    }
-    
-    #text {
-        padding: 30px;
-        border: solid black;
-        background-image: url(../img/bac.png);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        font-size: 50px;
-        color: white;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        z-index: 1;
-    }
-    
-    .button_d {
-        margin-left: 47.5%;
-        color: white;
-        border-width: 2px;
-        border-color: rgb(3, 100, 211);
-        margin-top: 5%;
-        margin-bottom: 10%;
-        border-radius: 5px;
-        padding: 20px;
-        width: 8%;
-        background: linear-gradient(to bottom, rgb(3, 100, 211)0%, rgb(5, 146, 240) 100%);
-    }
-    
-    #overlay2 {
-        position: fixed;
-        display: none;
-        width: 100%;
-        height: 100%;
-        background-color: blueviolet;
-    }
-    
-    .popup .overlay {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 1;
-        display: none;
-    }
-    
-    .popup .content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        background: rgba(255, 255, 255, 0);
-        width: 95%;
-        max-width: 500px;
-        height: 250px;
-        z-index: 2;
-        text-align: center;
-        padding: 20px;
-        box-sizing: border-box;
-        font-family: "Open Sans", sans-serif;
-    }
-    
-    .popup .close-btn {
-        cursor: pointer;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        width: 30px;
-        height: 30px;
-        background: #222;
-        color: #fff;
-        font-size: 25px;
-        font-weight: 600;
-        line-height: 30px;
-        text-align: center;
-        border-radius: 50%;
-    }
-    
-    .popup.active .overlay {
-        display: block;
-    }
-    
-    .popup.active .content {
-        transition: all 300ms ease-in-out;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-
-</style>
-
 <body>
     <header class="out_navbar">
         <a href="../index.html"> <img class="logo" src="../IMG/logo.png" alt="Logpng" width="170px" height="50">
         </a>
-        <nav>
-            <ul class="navbar">
-                <li><a href="../html/gallery.html">our Gallery</a></li>
-                <li><a href="../html/info.html">Information</a></li>
-                <li><a href="../html/download.html" class="active_tab">Download</a></li>
-            </ul>
-        </nav>
+        <div class="container2">
+            <a href="../html/gallery.html">our Gallery</a>
+            <a href="../html/info.html">Introduction</a>
+            <a href="../html/download.html">Download</a>
+        </div>
         <a class="cta" href="../html/login.html"><button class=" navbutton">Sign up</button></a>
     </header>
 
-    
+
     <div class="popup" id="popup-1">
         <div class="overlay"></div>
         <div class="content">
@@ -143,12 +35,10 @@
                                 <input class="input_s" type="email" name="email" id="email" placeholder="Your Email">
                             </div>
                             <div class="form-group">
-                                <label for="pass"></label><img src="../img/password_logo.png" width="20px" class="uname_img">  
-                                <img  src="../img/view.png" style="width:40px; position:absolute; margin-left:80px; cursor:pointer" id="imgView" onclick="hideAndShowPass()">                              
+                                <label for="pass"></label><img src="../img/password_logo.png" width="20px" class="uname_img">
+                                <img src="../img/view.png" style="width:21.5px; position:absolute; margin-left:80px; cursor:pointer" id="imgView" onclick="hideAndShowPass()">
                                 <input class="input_s" type="password" name="pass" id="pass" placeholder="Password">
                             </div>
-                            
-
                             <div class="form-group form-button">
                                 <button type="submit" name="signup" id="signup" class="form-submit" onclick="loginUser()">Sign in</button>
                             </div>
@@ -162,15 +52,24 @@
                     </div>
                 </div>
             </section>
-
         </div>
     </div>
+    <div class="download">
+        <img src="../img/waterfall.png" class="waterfall" width="660px">
+        <div class="inner_download">
+            <h1 class="wfall_title">This is our Source </h1>
+            <p class="wfall_text">Promenih se promenih moyto vsihcko naranih kakwwo sukrovishte si sukrovishteaz mu pak izneverih znaeh si be znahen si che shte e trundno kazvaha zheah promenih moyto vsihcko naranih kakwwo sukrovishte si sukrovishteaz mu pak izneverih znaeh
+                si be znahen si che shte e trundno kazvaha zheah si osht si oshte tejok e
+            </p>
+            <button class="button_d" onclick="togglePopup()">DOWNLOAD</button>
 
-    <button class="button_d" onclick="togglePopup()">DOWNLOAD</button>
-    <button class="button_d" onclick="togglePopup()">ZIP</button>
-
+            <button class="button_d bd2" onclick="togglePopup()">ZIP</button>
+        </div>
+    </div>
     <footer> this is example footer</footer>
+
 
     <script src="../JavaScript/download.js"></script>
     <script src="../JavaScript/localStorage.js"></script>
+
 </html>
