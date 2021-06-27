@@ -172,3 +172,26 @@ function changeClownFish() {
     }
 
 }
+
+function myFunction() {
+    var fishtypes = ["bluediscuss", "yellowdiscuss", "royalgamma", "blackmolly", "kissinggourami", "purpletang", "yellowtang", "chromisblue", "anthias", "clownfish"];
+    var fishcolor = ["yellow", "purple", "blue", "orange", "black", "colorful"];
+    var fishwater = ["saltwater", "salt", "fresh", "freshwater"];
+    var deafaultbg = "white";
+    var checker = false;
+    var finder = document.getElementById("gallerySearch").value;
+    finder = finder.split(" ").join("");
+    var finder = finder.toLowerCase();
+
+    for (var i = 0; i < 10; i++) {
+        if (finder == fishtypes[i]) {
+            for (var j = 0; j < 10; j++) {
+                document.getElementById(fishtypes[j]).style.backgroundColor = deafaultbg;
+            }
+            document.getElementById(fishtypes[i]).style.backgroundColor = 'red';
+            checker = true;
+        }
+    }
+
+
+}
