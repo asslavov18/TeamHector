@@ -5,12 +5,12 @@
  
 ## 📖 Table of Contents
  
-+ [Goal](#goal)
++ [Project](#project)
 + [Team](#team)
 + [Technologies](#technologies)
 + [Installation](#installation)
  
-## 🎯 Project <a name = "goal"></a>
+## 🎯 Project <a name = "project"></a>
 > Our **project** is an C++ application from which you can *add*, *remove*, *sort* and *find by parameters* **fish data**. We also have an **Website** from, which you can download the app.
  
 ## 💪🏻 Team	<a name = "team"></a>
