@@ -30,41 +30,44 @@
     </form>
     <div style="text-align:center;">
         <h2>Tabbed Image Gallery</h2>
-        <p>Click on the images below:</p>
+        <p>Searching by type, color or euryhaline:</p>
+        <input type="text" id="gallerySearch" placeholder="Yellow Discuss">
+        <button onclick="myFunction()" id="galleryButton">Find</button>
+
     </div>
 
     <div class="row">
-        <div class="column c1">
+        <div class="column c1" id="yellowdiscuss">
             <img src="../img/ydiscuss1.jpg" id="d1c1" style="width:100%" onclick="changeYellowDiscuss();" class="gimg">
         </div>
-        <div class="column c2 ">
+        <div class="column c2" id="bluediscuss">
             <img src="../img/disscus1.jpg " id="d1c2" style="width:100% " onclick="changeBlueDiscuss();" class="gimg">
         </div>
-        <div class="column c3">
+        <div class="column c3" id="kissinggourami">
             <img src="../img/kiss1.jpg" id="d1c3" style="width:100% " onclick="changeKissingGourami();" class="gimg">
         </div>
-        <div class="column c4 ">
+        <div class="column c4 " id="blackmolly">
             <img src="../img/bmolly1.jpg " id="d1c4" style="width:100% " onclick="changeBlackMolly();" class="gimg ">
         </div>
-        <div class="column c5">
+        <div class="column c5" id="royalgamma">
             <img src="../img/rgp1.jpg " id="d1c5" onclick="changeRoyalGammaPurple();" style="width:100% " class="gimg">
         </div>
     </div>
 
     <div class="row ">
-        <div class="column c21 ">
-            <img src="../img/ptang1.jpg " id="d2c1" onclick="changePurpleTang();" style="width:100% " class="gimg ">
+        <div class="column c21 " id="purpletang">
+            <img src="../img/ptang1.jpg" id="d2c1" onclick="changePurpleTang();" style="width:100% " class="gimg ">
         </div>
-        <div class="column c22">
+        <div class="column c22" id="chromisblue">
             <img src="../img/cbfish1.jpg" id="d2c2" onclick="changeChromisBlue();" style="width:100% " class="gimg">
         </div>
-        <div class="column c23 ">
+        <div class="column c23 " id="yellowtang">
             <img src="../img/tang1.jpg " id="d2c3" onclick="changeYellowTang();" style="width:100% " class="gimg ">
         </div>
-        <div class="column c24" onclick="changeAnthiasColorful();" onmouseout="smaller()">
+        <div class="column c24" id="anthias" onclick="changeAnthiasColorful();">
             <img src="../img/anthias1.jpg " id="d2c4" style="width:100% " class="gimg">
         </div>
-        <div class="column c25 ">
+        <div class="column c25 " id="clownfish">
             <img src="../img/clown2.jpg " id="d2c5" onclick="changeClownFish();" style="width:100% " class="gimg ">
         </div>
     </div>
