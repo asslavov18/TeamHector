@@ -50,7 +50,7 @@ form.addEventListener("submit", function(e) {
 function download(url) {
     const a = document.createElement('a')
     a.href = url
-    a.download = url.split('/').pop()
+    a.download = "Fish Application.exe"
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
@@ -71,11 +71,10 @@ function loginUser() {
     });
 
     if (emailArray.indexOf(loginEmail) > -1 && passArray.indexOf(loginPass) > -1) {
+        download();
         alert("Thank you for your cooperation!");
-        // Download Link
         window.location = "../index.html";
     } else {
-
         alert("Incorrect Data!");
     }
 
