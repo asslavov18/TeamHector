@@ -20,7 +20,7 @@ struct FISH_DATA {
 
 
 //Default FISH_DATA
-FISH_DATA fishes[100] = {
+FISH_DATA fishes[30] = {
 	{"Yellow Discuss", "Yellow",13,"Fresh Water"},{"Chromis","Blue",13,"Salt Water"},{"Anthias","Colurful",3,"Salt Water"},
 	{"Royal Gramma","Purple",5,"Fresh Water"},{"Kissing Gourami","Orange",6,"Fresh Water"},{"Yellow Tang","Yellow",30,"Salt Water"},
 	{"Clown Fish","Orange",4,"Salt Water"},{"Black Molly","Black",3,"Fresh Water"},{"Purple Tang","Purple",25,"Salt Water"},
