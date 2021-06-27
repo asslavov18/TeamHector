@@ -1,4 +1,4 @@
- # Welcome IGNITY (Firefighters)!
+ # Welcome Team Hector!
  	
 
 ---
