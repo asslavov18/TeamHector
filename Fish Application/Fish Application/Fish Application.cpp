@@ -157,126 +157,113 @@ void removeFishFromData()
 
 }
 
-
-FISH_DATA sortByNameAlphabetically()
+FISH_DATA sortData(int choice)
 {
-
-	for (int i = 0; i < fishPostion; i++)
+	switch (choice)
 	{
-		for (int j = 0; j < fishPostion - 1; j++)
-		{
-			if (fishes[j].name >= fishes[j + 1].name) {
-				swap(fishes[j], fishes[j + 1]);
+		//Sort by name alphabetically
+		case 1:
+			for (int i = 0; i < fishPostion; i++)
+			{
+				for (int j = 0; j < fishPostion - 1; j++)
+				{
+					if (fishes[j].name >= fishes[j + 1].name) {
+						swap(fishes[j], fishes[j + 1]);
+					}
+				}
 			}
-		}
-	}
+			break;
 
-	return fishes[fishPostion];
-}
-
-
-FISH_DATA sortByNameAlphabeticallyReversed()
-{
-
-	for (int i = 0; i < fishPostion; i++)
-	{
-		for (int j = 0; j < fishPostion - 1; j++)
-		{
-			if (fishes[j].name <= fishes[j + 1].name) {
-				swap(fishes[j], fishes[j + 1]);
+		//Sort by name alphabetically reversed
+		case 2:
+			for (int i = 0; i < fishPostion; i++)
+			{
+				for (int j = 0; j < fishPostion - 1; j++)
+				{
+					if (fishes[j].name <= fishes[j + 1].name) {
+						swap(fishes[j], fishes[j + 1]);
+					}
+				}
 			}
-		}
-	}
-
-	return fishes[fishPostion];
-}
-
-
-FISH_DATA sortByColorAlpabetically()
-{
-	for (int i = 0; i < fishPostion; i++)
-	{
-		for (int j = 0; j < fishPostion - 1; j++)
-		{
-			if (fishes[j].color >= fishes[j + 1].color) {
-				swap(fishes[j], fishes[j + 1]);
+			break;
+		
+		//Sort by color alphabetically
+		case 3:
+			for (int i = 0; i < fishPostion; i++)
+			{
+				for (int j = 0; j < fishPostion - 1; j++)
+				{
+					if (fishes[j].color >= fishes[j + 1].color) {
+						swap(fishes[j], fishes[j + 1]);
+					}
+				}
 			}
-		}
-	}
-
-	return fishes[fishPostion];
-}
-
-FISH_DATA sortByColorAlpabeticallyReversed()
-{
-	for (int i = 0; i < fishPostion; i++)
-	{
-		for (int j = 0; j < fishPostion - 1; j++)
-		{
-			if (fishes[j].color <= fishes[j + 1].color) {
-				swap(fishes[j], fishes[j + 1]);
+			break;
+		
+		//Sort by color alphabetically reversed
+		case 4:
+			for (int i = 0; i < fishPostion; i++)
+			{
+				for (int j = 0; j < fishPostion - 1; j++)
+				{
+					if (fishes[j].color <= fishes[j + 1].color) {
+						swap(fishes[j], fishes[j + 1]);
+					}
+				}
 			}
-		}
-	}
+			break;
 
-	return fishes[fishPostion];
-}
-
-FISH_DATA sortByLifetimeLargestToSmallest()
-{
-	for (int i = 0; i < fishPostion; i++)
-	{
-		for (int j = 0; j < fishPostion - 1; j++)
-		{
-			if (fishes[j].lifeTime <= fishes[j + 1].lifeTime) {
-				swap(fishes[j], fishes[j + 1]);
+		//Sort by lifetime largest to smallest		
+		case 5:
+			for (int i = 0; i < fishPostion; i++)
+			{
+				for (int j = 0; j < fishPostion - 1; j++)
+				{
+					if (fishes[j].lifeTime <= fishes[j + 1].lifeTime) {
+						swap(fishes[j], fishes[j + 1]);
+					}
+				}
 			}
-		}
-	}
-
-	return fishes[fishPostion];
-}
-
-FISH_DATA sortByLifetimeSmallestToLargest()
-{
-	for (int i = 0; i < fishPostion; i++)
-	{
-		for (int j = 0; j < fishPostion - 1; j++)
-		{
-			if (fishes[j].lifeTime >= fishes[j + 1].lifeTime) {
-				swap(fishes[j], fishes[j + 1]);
+			break;
+			
+		//Sort by lifetime smallest to largest	
+		case 6:
+			for (int i = 0; i < fishPostion; i++)
+			{
+				for (int j = 0; j < fishPostion - 1; j++)
+				{
+					if (fishes[j].lifeTime >= fishes[j + 1].lifeTime) {
+						swap(fishes[j], fishes[j + 1]);
+					}
+				}
 			}
-		}
-	}
+			break;
 
-	return fishes[fishPostion];
-}
-
-FISH_DATA sortByEuryhalineAlpabetically()
-{
-	for (int i = 0; i < fishPostion; i++)
-	{
-		for (int j = 0; j < fishPostion - 1; j++)
-		{
-			if (fishes[j].euryhaline >= fishes[j + 1].euryhaline) {
-				swap(fishes[j], fishes[j + 1]);
+		//Sort by euryhaline alphabetically
+		case 7:
+			for (int i = 0; i < fishPostion; i++)
+			{
+				for (int j = 0; j < fishPostion - 1; j++)
+				{
+					if (fishes[j].euryhaline >= fishes[j + 1].euryhaline) {
+						swap(fishes[j], fishes[j + 1]);
+					}
+				}
 			}
-		}
-	}
+			break;
 
-	return fishes[fishPostion];
-}
-
-FISH_DATA sortByEuryhalineAlpabeticallyReversed()
-{
-	for (int i = 0; i < fishPostion; i++)
-	{
-		for (int j = 0; j < fishPostion - 1; j++)
-		{
-			if (fishes[j].euryhaline <= fishes[j + 1].euryhaline) {
-				swap(fishes[j], fishes[j + 1]);
+		//Sort by euryhaline alphabetically reversed
+		case 8:
+			for (int i = 0; i < fishPostion; i++)
+			{
+				for (int j = 0; j < fishPostion - 1; j++)
+				{
+					if (fishes[j].euryhaline <= fishes[j + 1].euryhaline) {
+						swap(fishes[j], fishes[j + 1]);
+					}
+				}
 			}
-		}
+			break;
 	}
 
 	return fishes[fishPostion];
@@ -345,14 +332,17 @@ void printFindByMenu()
 	}
 }
 
-//Printing Founded fishes
+//Print found fishes
 void printFoundByParameter()
 {
 	system("cls");
 	int fishNumber = 1;
 
-		if (*findChoice == 1)
-		{
+	switch (*findChoice)
+	{
+		//Found by name
+		case 1:
+
 			for (int i = 0; i < fishPostion; i++)
 			{
 				if (choiceToFind == fishes[i].name)
@@ -361,10 +351,11 @@ void printFoundByParameter()
 					fishNumber++;
 				}
 			}
-		}
+			break;
 
-		else if (*findChoice == 2)
-		{
+		//Found by color
+		case 2:
+
 			for (int i = 0; i < fishPostion; i++)
 			{
 				if (choiceToFind == fishes[i].color)
@@ -373,11 +364,12 @@ void printFoundByParameter()
 					fishNumber++;
 				}
 			}
-		}
+			break;
 
-		else if (*findChoice == 3)
-		{
+		//Found by lifetime
+		case 3:
 			cin.ignore();
+
 			for (int i = 0; i < fishPostion; i++)
 			{
 				if (choiceToFindForLifetime == fishes[i].lifeTime)
@@ -385,11 +377,12 @@ void printFoundByParameter()
 					cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
 					fishNumber++;
 				}
-			}
-		}
+			}		
+			break;
+		
+		//Found by euryhaline
+		case 4:
 
-		else if (*findChoice == 4)
-		{
 			for (int i = 0; i < fishPostion; i++)
 			{
 				if (choiceToFind == fishes[i].euryhaline)
@@ -398,7 +391,9 @@ void printFoundByParameter()
 					fishNumber++;
 				}
 			}
-		}
+			break;
+
+	}
 
 	cout << endl << "Press Enter to escape: ";
 	cin.get();
@@ -484,35 +479,35 @@ void startProgram()
 		switch (sortChoice)
 		{
 		case 1:
-			sortByNameAlphabetically();
+			sortData(sortChoice);
 			break;
 
 		case 2:
-			sortByNameAlphabeticallyReversed();
+			sortData(sortChoice);
 			break;
 
 		case 3:
-			sortByColorAlpabetically();
+			sortData(sortChoice);
 			break;
 
 		case 4:
-			sortByColorAlpabeticallyReversed();
+			sortData(sortChoice);
 			break;
 
 		case 5:
-			sortByLifetimeLargestToSmallest();
+			sortData(sortChoice);
 			break;
 
 		case 6:
-			sortByLifetimeSmallestToLargest();
+			sortData(sortChoice);
 			break;
 
 		case 7:
-			sortByEuryhalineAlpabetically();
+			sortData(sortChoice);
 			break;
 
 		case 8:
-			sortByEuryhalineAlpabeticallyReversed();
+			sortData(sortChoice);
 			break;
 
 		case 0:
