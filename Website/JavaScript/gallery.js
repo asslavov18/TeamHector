@@ -193,5 +193,64 @@ function myFunction() {
         }
     }
 
+    for (var i = 0; i < 6; i++) {
+        if (finder == fishcolor[i]) {
+            for (var j = 0; j < 10; j++) {
+                document.getElementById(fishtypes[j]).style.backgroundColor = 'white';
+            }
+            if (i == 0) {
+                document.getElementById("yellowdiscuss").style.backgroundColor = fishcolor[i];
+                document.getElementById("yellowtang").style.backgroundColor = fishcolor[i];
+            }
+            if (i == 1) {
+                document.getElementById("royalgamma").style.backgroundColor = fishcolor[i];
+                document.getElementById("purpletang").style.backgroundColor = fishcolor[i];
+            }
+            if (i == 2) {
+                document.getElementById("bluediscuss").style.backgroundColor = fishcolor[i];
+                document.getElementById("chromisblue").style.backgroundColor = fishcolor[i];
+            }
+            if (i == 3) {
+                document.getElementById("kissinggourami").style.backgroundColor = fishcolor[i];
+                document.getElementById("clownfish").style.backgroundColor = fishcolor[i];
+            }
+            if (i == 4) {
+                document.getElementById("blackmolly").style.backgroundColor = fishcolor[i];
+            }
+            if (i == 5) {
+                document.getElementById("anthias").style.backgroundColor = 'pink';
+            }
+            checker = true;
+        }
+    }
+
+
+    if (finder == fishwater[2] || finder == fishwater[3]) {
+        for (var j = 0; j < 10; j++) {
+            document.getElementById(fishtypes[j]).style.backgroundColor = deafaultbg;
+        }
+        for (var i = 0; i < 5; i++) {
+            document.getElementById(fishtypes[i]).style.backgroundColor = 'blue';
+        }
+        checker = true;
+    }
+
+    if (finder == fishwater[0] || finder == fishwater[1]) {
+        for (var j = 0; j < 10; j++) {
+            document.getElementById(fishtypes[j]).style.backgroundColor = deafaultbg;
+        }
+        for (var i = 5; i < 10; i++) {
+            document.getElementById(fishtypes[i]).style.backgroundColor = 'blue';
+        }
+        checker = true;
+    }
+
+
+
+    if (checker == false) {
+        for (var j = 0; j < 10; j++) {
+            document.getElementById(fishtypes[j]).style.backgroundColor = 'white';
+        }
+    }
 
 }
