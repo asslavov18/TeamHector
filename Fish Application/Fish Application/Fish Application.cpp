@@ -9,8 +9,8 @@ ofstream inputData;
 ifstream outputData("FishData.txt");
 bool checkForMatch = false;
 int fishPostion = 10;
-bool check = true;
 
+//Creating FISH_DATA struct for to safe the data from the file
 struct FISH_DATA {
 	string name;
 	string color;
@@ -18,6 +18,8 @@ struct FISH_DATA {
 	string euryhaline;
 };
 
+
+//Default FISH_DATA
 FISH_DATA fishes[100] = {
 	{"Yellow Discuss", "Yellow",13,"Fresh Water"},{"Chromis","Blue",13,"Salt Water"},{"Anthias","Colurful",3,"Salt Water"},
 	{"Royal Gramma","Purple",5,"Fresh Water"},{"Kissing Gourami","Orange",6,"Fresh Water"},{"Yellow Tang","Yellow",30,"Salt Water"},
@@ -25,6 +27,8 @@ FISH_DATA fishes[100] = {
 	{"Blue Discuss","Blue", 10, "Fresh Water"}
 };
 
+
+//Input the reconstructed struct into the file
 void rememberFishDataInFile()
 {
 	inputData.open("FishData.txt", ofstream::trunc);
@@ -82,6 +86,7 @@ void printMenu()
 
 }
 
+//Input into the struct
 void inputFishData()
 {
 	cin.ignore();
@@ -104,6 +109,7 @@ void inputFishData()
 
 	getline(cin, fishes[fishPostion].euryhaline);
 
+	//Into the file
 	rememberFishDataInFile();
 
 	fishPostion++;
@@ -123,6 +129,8 @@ void outputFishData()
 	}
 }
 
+//Function which we use for removing fish data
+//From the struct and from the file
 void removeFishFromData()
 {
 	outputFishData();
@@ -337,76 +345,68 @@ void printFindByMenu()
 	}
 }
 
-void printFoundByName()
+//Printing Founded fishes
+void printFoundByParameter()
 {
 	system("cls");
 	int fishNumber = 1;
-	for (int i = 0; i < fishPostion; i++)
-	{
-		if (choiceToFind == fishes[i].name)
+
+		if (*findChoice == 1)
 		{
-			cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
-			fishNumber++;
+			for (int i = 0; i < fishPostion; i++)
+			{
+				if (choiceToFind == fishes[i].name)
+				{
+					cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
+					fishNumber++;
+				}
+			}
 		}
-	}
 
-	cout << endl << "Press Enter to escape: ";
-	cin.get();
-
-}
-
-void printFoundByColor()
-{
-	system("cls");
-	int fishNumber =1;
-	for (int i = 0; i < fishPostion; i++)
-	{
-		if (choiceToFind == fishes[i].color)
+		else if (*findChoice == 2)
 		{
-			cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
-			fishNumber++;
+			for (int i = 0; i < fishPostion; i++)
+			{
+				if (choiceToFind == fishes[i].color)
+				{
+					cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
+					fishNumber++;
+				}
+			}
 		}
-	}
 
-	cout << endl << "Press Enter to escape: ";
-	cin.get();
-}
-
-void printFoundByLifeTime()
-{
-	cin.ignore();
-	system("cls");
-	int fishNumber = 1;
-	for (int i = 0; i < fishPostion; i++)
-	{
-		if (choiceToFindForLifetime == fishes[i].lifeTime)
+		else if (*findChoice == 3)
 		{
-			cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
-			fishNumber++;
+			cin.ignore();
+			for (int i = 0; i < fishPostion; i++)
+			{
+				if (choiceToFindForLifetime == fishes[i].lifeTime)
+				{
+					cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
+					fishNumber++;
+				}
+			}
 		}
-	}
 
-	cout << endl << "Press Enter to escape: ";
-	cin.get();
-}
-
-void printFoundByEuryhaline()
-{
-	system("cls");
-	int fishNumber = 1;
-	for (int i = 0; i < fishPostion; i++)
-	{
-		if (choiceToFind == fishes[i].euryhaline)
+		else if (*findChoice == 4)
 		{
-			cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
-			fishNumber++;
+			for (int i = 0; i < fishPostion; i++)
+			{
+				if (choiceToFind == fishes[i].euryhaline)
+				{
+					cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
+					fishNumber++;
+				}
+			}
 		}
-	}
 
 	cout << endl << "Press Enter to escape: ";
 	cin.get();
 }
 
+//Checks if the data from the file and from the input
+// Is matching. If it is it returns true
+//Else false
 void checkForMatchAdminData()
 {
 	system("cls");
@@ -534,22 +534,22 @@ void startProgram()
 		{
 		case 1:
 			printFindByMenu();
-			printFoundByName();
+			printFoundByParameter();
 			break;
 
 		case 2:
 			printFindByMenu();
-			printFoundByColor();
+			printFoundByParameter();
 			break;
 
 		case 3:
 			printFindByMenu();
-			printFoundByLifeTime();
+			printFoundByParameter();
 			break;
 
 		case 4:
 			printFindByMenu();
-			printFoundByEuryhaline();
+			printFoundByParameter();
 			break;
 
 		case 0:
