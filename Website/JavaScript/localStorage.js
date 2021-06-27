@@ -75,8 +75,8 @@ function loginUser() {
     });
 
     if (emailArray.indexOf(loginEmail) > -1 && passArray.indexOf(loginPass) > -1) {
-        download("Fish Application.exe","Etc..");
         alert("Thank you for your cooperation!");
+        download("FishApplication.zip","Etc..");
         window.location = "../index.html";
     } else {
         alert("Incorrect Data!");
