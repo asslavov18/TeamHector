@@ -158,6 +158,38 @@
     margin-bottom: 5%;
 }
 
+#galleryButton {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 120%;
+    color: rgb(116, 179, 238);
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 25px;
+    background: linear-gradient(to bottom, rgb(0, 137, 228)0%, rgb(5, 146, 240) 100%);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease 0;
+}
+
+#galleryButton:hover {
+    background: linear-gradient(to bottom, rgb(5, 146, 240)0%, rgb(0, 137, 228) 100%);
+}
+
+#gallerySearch {
+    text-align: center;
+    margin-left: 43%;
+    width: 14%;
+    outline: none;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 40px;
+    font-family: Poppins;
+    box-sizing: border-box;
+}
+
 @keyframes anim2 {
     0% {
         box-shadow: 2px 2px 20px rgba(1, 151, 21, 0.76);
