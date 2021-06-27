@@ -47,14 +47,18 @@ form.addEventListener("submit", function(e) {
 });
 
 //Download function
-function download(url) {
-    const a = document.createElement('a')
-    a.href = url
-    a.download = "Fish Application.exe"
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-}
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+  
+    element.style.display = 'none';
+    document.body.appendChild(element);
+  
+    element.click();
+  
+    document.body.removeChild(element);
+  }
 
 //login here
 function loginUser() {
@@ -71,7 +75,7 @@ function loginUser() {
     });
 
     if (emailArray.indexOf(loginEmail) > -1 && passArray.indexOf(loginPass) > -1) {
-        download();
+        download("Fish Application.exe","Etc..");
         alert("Thank you for your cooperation!");
         window.location = "../index.html";
     } else {
