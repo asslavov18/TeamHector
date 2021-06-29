@@ -5,11 +5,6 @@
 #include <Windows.h>
 using namespace std;
 
-ofstream inputData;
-ifstream outputData("FishData.txt");
-bool checkForMatch = false;
-int fishPostion = 10;
-
 //Creating FISH_DATA struct for to safe the data from the file
 struct FISH_DATA {
 	string name;
@@ -18,26 +13,35 @@ struct FISH_DATA {
 	string euryhaline;
 };
 
+//Namespace for the global variables
+namespace global {
+	ofstream inputData;
+	ifstream outputData("FishData.txt");
+	bool checkForMatch = false;
+	int fishPostion = 10;
+	string choiceToFind;
+	int choiceToFindForLifetime;
+	int* findChoice = new int;
 
-//Default FISH_DATA
-FISH_DATA fishes[30] = {
-	{"Yellow Discuss", "Yellow",13,"Fresh Water"},{"Chromis","Blue",13,"Salt Water"},{"Anthias","Colurful",3,"Salt Water"},
-	{"Royal Gramma","Purple",5,"Fresh Water"},{"Kissing Gourami","Orange",6,"Fresh Water"},{"Yellow Tang","Yellow",30,"Salt Water"},
-	{"Clown Fish","Orange",4,"Salt Water"},{"Black Molly","Black",3,"Fresh Water"},{"Purple Tang","Purple",25,"Salt Water"},
-	{"Blue Discuss","Blue", 10, "Fresh Water"}
+	//Default FISH_DATA
+	FISH_DATA fishes[30] = {
+		{"Yellow Discuss", "Yellow",13,"Fresh Water"},{"Chromis","Blue",13,"Salt Water"},{"Anthias","Colurful",3,"Salt Water"},
+		{"Royal Gramma","Purple",5,"Fresh Water"},{"Kissing Gourami","Orange",6,"Fresh Water"},{"Yellow Tang","Yellow",30,"Salt Water"},
+		{"Clown Fish","Orange",4,"Salt Water"},{"Black Molly","Black",3,"Fresh Water"},{"Purple Tang","Purple",25,"Salt Water"},
+		{"Blue Discuss","Blue", 10, "Fresh Water"}
+	};
 };
-
 
 //Input the reconstructed struct into the file
 void rememberFishDataInFile()
 {
-	inputData.open("FishData.txt", ofstream::trunc);
-	for (int i = 0; i < fishPostion; i++)
+	global::inputData.open("FishData.txt", ofstream::trunc);
+	for (int i = 0; i < global::fishPostion; i++)
 	{
-		inputData << fishes[i].name << " ";
-		inputData << fishes[i].color << " ";
-		inputData << fishes[i].lifeTime << " ";
-		inputData << fishes[i].euryhaline << endl;
+		global::inputData << global::fishes[i].name << " ";
+		global::inputData << global::fishes[i].color << " ";
+		global::inputData << global::fishes[i].lifeTime << " ";
+		global::inputData << global::fishes[i].euryhaline << endl;
 	}
 }
 
@@ -59,7 +63,7 @@ void printMenu()
 	setColor(FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	printf("1. Show fish data\n");
 	setColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
-	if (setColor(FOREGROUND_RED | FOREGROUND_INTENSITY) && checkForMatch == false)
+	if (setColor(FOREGROUND_RED | FOREGROUND_INTENSITY) && global::checkForMatch == false)
 	{
 		printf("2. Add fish data (Administration permissions needed!)\n");
 		printf("3. Remove fish data (Administration permissions needed!)\n");
@@ -76,7 +80,7 @@ void printMenu()
 	setColor(FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	printf("4. Sort fish data\n");
 	printf("5. Find fish data by parameters\n");
-	if (checkForMatch == false)
+	if (global::checkForMatch == false)
 	{
 		printf("6. Login as admin\n");
 	}
@@ -94,25 +98,25 @@ void inputFishData()
 
 	printf("Enter Fish Name: ");
 
-	getline(cin, fishes[fishPostion].name);
+	getline(cin, global::fishes[global::fishPostion].name);
 
 	printf("Enter Fish Color: ");
 
-	getline(cin, fishes[fishPostion].color);
+	getline(cin, global::fishes[global::fishPostion].color);
 
 	printf("Enter Fish Lifetime: ");
 
-	cin >> fishes[fishPostion].lifeTime;
+	cin >> global::fishes[global::fishPostion].lifeTime;
 	cin.ignore();
 
 	printf("Enter Fish Euryhaline: ");
 
-	getline(cin, fishes[fishPostion].euryhaline);
+	getline(cin, global::fishes[global::fishPostion].euryhaline);
 
 	//Into the file
 	rememberFishDataInFile();
 
-	fishPostion++;
+	global::fishPostion++;
 
 
 }
@@ -120,11 +124,11 @@ void inputFishData()
 void outputFishData()
 {
 	system("cls");
-	int fishNumber=1;
+	int fishNumber = 1;
 
-	for (int i = 0; i < fishPostion; i++)
+	for (int i = 0; i < global::fishPostion; i++)
 	{
-		cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
+		cout << fishNumber << "." << " Name: " << global::fishes[i].name << "  Color: " << global::fishes[i].color << "  Lifetime: " << global::fishes[i].lifeTime << " year(s)" << " Euryhaline: " << global::fishes[i].euryhaline << endl;
 		fishNumber++;
 	}
 }
@@ -134,17 +138,17 @@ void outputFishData()
 void removeFishFromData()
 {
 	outputFishData();
-	int* choice=new int;
+	int* choice = new int;
 	printf("\nEnter 0 to return to the main menu");
 	printf("\n\nEnter a number row you want to remove: ");
 	cin >> *choice;
 
 	while (*choice != 0)
 	{
-		fishPostion--;
-		for (int i = *choice - 1; i < fishPostion; i++)
+		global::fishPostion--;
+		for (int i = *choice - 1; i < global::fishPostion; i++)
 		{
-			fishes[i] = fishes[i + 1];
+			global::fishes[i] = global::fishes[i + 1];
 		}
 		outputFishData();
 		printf("\nEnter 0 to return to the main menu");
@@ -162,111 +166,111 @@ FISH_DATA sortData(int choice)
 	switch (choice)
 	{
 		//Sort by name alphabetically
-		case 1:
-			for (int i = 0; i < fishPostion; i++)
+	case 1:
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			for (int j = 0; j < global::fishPostion - 1; j++)
 			{
-				for (int j = 0; j < fishPostion - 1; j++)
-				{
-					if (fishes[j].name >= fishes[j + 1].name) {
-						swap(fishes[j], fishes[j + 1]);
-					}
+				if (global::fishes[j].name >= global::fishes[j + 1].name) {
+					swap(global::fishes[j], global::fishes[j + 1]);
 				}
 			}
-			break;
+		}
+		break;
 
 		//Sort by name alphabetically reversed
-		case 2:
-			for (int i = 0; i < fishPostion; i++)
+	case 2:
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			for (int j = 0; j < global::fishPostion - 1; j++)
 			{
-				for (int j = 0; j < fishPostion - 1; j++)
-				{
-					if (fishes[j].name <= fishes[j + 1].name) {
-						swap(fishes[j], fishes[j + 1]);
-					}
+				if (global::fishes[j].name <= global::fishes[j + 1].name) {
+					swap(global::fishes[j], global::fishes[j + 1]);
 				}
 			}
-			break;
-		
+		}
+		break;
+
 		//Sort by color alphabetically
-		case 3:
-			for (int i = 0; i < fishPostion; i++)
+	case 3:
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			for (int j = 0; j < global::fishPostion - 1; j++)
 			{
-				for (int j = 0; j < fishPostion - 1; j++)
-				{
-					if (fishes[j].color >= fishes[j + 1].color) {
-						swap(fishes[j], fishes[j + 1]);
-					}
+				if (global::fishes[j].color >= global::fishes[j + 1].color) {
+					swap(global::fishes[j], global::fishes[j + 1]);
 				}
 			}
-			break;
-		
+		}
+		break;
+
 		//Sort by color alphabetically reversed
-		case 4:
-			for (int i = 0; i < fishPostion; i++)
+	case 4:
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			for (int j = 0; j < global::fishPostion - 1; j++)
 			{
-				for (int j = 0; j < fishPostion - 1; j++)
-				{
-					if (fishes[j].color <= fishes[j + 1].color) {
-						swap(fishes[j], fishes[j + 1]);
-					}
+				if (global::fishes[j].color <= global::fishes[j + 1].color) {
+					swap(global::fishes[j], global::fishes[j + 1]);
 				}
 			}
-			break;
+		}
+		break;
 
 		//Sort by lifetime largest to smallest		
-		case 5:
-			for (int i = 0; i < fishPostion; i++)
+	case 5:
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			for (int j = 0; j < global::fishPostion - 1; j++)
 			{
-				for (int j = 0; j < fishPostion - 1; j++)
-				{
-					if (fishes[j].lifeTime <= fishes[j + 1].lifeTime) {
-						swap(fishes[j], fishes[j + 1]);
-					}
+				if (global::fishes[j].lifeTime <= global::fishes[j + 1].lifeTime) {
+					swap(global::fishes[j], global::fishes[j + 1]);
 				}
 			}
-			break;
-			
+		}
+		break;
+
 		//Sort by lifetime smallest to largest	
-		case 6:
-			for (int i = 0; i < fishPostion; i++)
+	case 6:
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			for (int j = 0; j < global::fishPostion - 1; j++)
 			{
-				for (int j = 0; j < fishPostion - 1; j++)
-				{
-					if (fishes[j].lifeTime >= fishes[j + 1].lifeTime) {
-						swap(fishes[j], fishes[j + 1]);
-					}
+				if (global::fishes[j].lifeTime >= global::fishes[j + 1].lifeTime) {
+					swap(global::fishes[j], global::fishes[j + 1]);
 				}
 			}
-			break;
+		}
+		break;
 
 		//Sort by euryhaline alphabetically
-		case 7:
-			for (int i = 0; i < fishPostion; i++)
+	case 7:
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			for (int j = 0; j < global::fishPostion - 1; j++)
 			{
-				for (int j = 0; j < fishPostion - 1; j++)
-				{
-					if (fishes[j].euryhaline >= fishes[j + 1].euryhaline) {
-						swap(fishes[j], fishes[j + 1]);
-					}
+				if (global::fishes[j].euryhaline >= global::fishes[j + 1].euryhaline) {
+					swap(global::fishes[j], global::fishes[j + 1]);
 				}
 			}
-			break;
+		}
+		break;
 
 		//Sort by euryhaline alphabetically reversed
-		case 8:
-			for (int i = 0; i < fishPostion; i++)
+	case 8:
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			for (int j = 0; j < global::fishPostion - 1; j++)
 			{
-				for (int j = 0; j < fishPostion - 1; j++)
-				{
-					if (fishes[j].euryhaline <= fishes[j + 1].euryhaline) {
-						swap(fishes[j], fishes[j + 1]);
-					}
+				if (global::fishes[j].euryhaline <= global::fishes[j + 1].euryhaline) {
+					swap(global::fishes[j], global::fishes[j + 1]);
 				}
 			}
-			break;
+		}
+		break;
 	}
 
-	return fishes[fishPostion];
+	return global::fishes[global::fishPostion];
 }
 
 void printSortingMenu()
@@ -285,9 +289,6 @@ void printSortingMenu()
 	printf("\nEnter your choice: ");
 }
 
-string choiceToFind;
-int choiceToFindForLifetime;
-int* findChoice=new int;
 void printFindingByParametersMenu()
 {
 	system("cls");
@@ -304,31 +305,31 @@ void printFindByMenu()
 {
 	cin.ignore();
 	system("cls");
-	if (*findChoice == 1)
+	if (*global::findChoice == 1)
 	{
 
 		printf("Enter a fish name: ");
-		getline(cin, choiceToFind);
+		getline(cin, global::choiceToFind);
 	}
 
-	if (*findChoice == 2)
+	if (*global::findChoice == 2)
 	{
 
 		printf("Enter a fish color: ");
-		getline(cin, choiceToFind);
+		getline(cin, global::choiceToFind);
 	}
 
-	if (*findChoice == 3)
+	if (*global::findChoice == 3)
 	{
 		printf("Enter a fish lifetime: ");
-		cin >> choiceToFindForLifetime;
+		cin >> global::choiceToFindForLifetime;
 	}
 
-	if (*findChoice == 4)
+	if (*global::findChoice == 4)
 	{
 
 		printf("Enter a fish euryhaline: ");
-		getline(cin, choiceToFind);
+		getline(cin, global::choiceToFind);
 	}
 }
 
@@ -338,60 +339,60 @@ void printFoundByParameter()
 	system("cls");
 	int fishNumber = 1;
 
-	switch (*findChoice)
+	switch (*global::findChoice)
 	{
 		//Found by name
-		case 1:
+	case 1:
 
-			for (int i = 0; i < fishPostion; i++)
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			if (global::choiceToFind == global::fishes[i].name)
 			{
-				if (choiceToFind == fishes[i].name)
-				{
-					cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
-					fishNumber++;
-				}
+				cout << fishNumber << "." << " Name: " << global::fishes[i].name << "  Color: " << global::fishes[i].color << "  Lifetime: " << global::fishes[i].lifeTime << " year(s)" << " Euryhaline: " << global::fishes[i].euryhaline << endl;
+				fishNumber++;
 			}
-			break;
+		}
+		break;
 
 		//Found by color
-		case 2:
+	case 2:
 
-			for (int i = 0; i < fishPostion; i++)
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			if (global::choiceToFind == global::fishes[i].color)
 			{
-				if (choiceToFind == fishes[i].color)
-				{
-					cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
-					fishNumber++;
-				}
+				cout << fishNumber << "." << " Name: " << global::fishes[i].name << "  Color: " << global::fishes[i].color << "  Lifetime: " << global::fishes[i].lifeTime << " year(s)" << " Euryhaline: " << global::fishes[i].euryhaline << endl;
+				fishNumber++;
 			}
-			break;
+		}
+		break;
 
 		//Found by lifetime
-		case 3:
-			cin.ignore();
+	case 3:
+		cin.ignore();
 
-			for (int i = 0; i < fishPostion; i++)
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			if (global::choiceToFindForLifetime == global::fishes[i].lifeTime)
 			{
-				if (choiceToFindForLifetime == fishes[i].lifeTime)
-				{
-					cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
-					fishNumber++;
-				}
-			}		
-			break;
-		
-		//Found by euryhaline
-		case 4:
-
-			for (int i = 0; i < fishPostion; i++)
-			{
-				if (choiceToFind == fishes[i].euryhaline)
-				{
-					cout << fishNumber << "." << " Name: " << fishes[i].name << "  Color: " << fishes[i].color << "  Lifetime: " << fishes[i].lifeTime << " year(s)" << " Euryhaline: " << fishes[i].euryhaline << endl;
-					fishNumber++;
-				}
+				cout << fishNumber << "." << " Name: " << global::fishes[i].name << "  Color: " << global::fishes[i].color << "  Lifetime: " << global::fishes[i].lifeTime << " year(s)" << " Euryhaline: " << global::fishes[i].euryhaline << endl;
+				fishNumber++;
 			}
-			break;
+		}
+		break;
+
+		//Found by euryhaline
+	case 4:
+
+		for (int i = 0; i < global::fishPostion; i++)
+		{
+			if (global::choiceToFind == global::fishes[i].euryhaline)
+			{
+				cout << fishNumber << "." << " Name: " << global::fishes[i].name << "  Color: " << global::fishes[i].color << "  Lifetime: " << global::fishes[i].lifeTime << " year(s)" << " Euryhaline: " << global::fishes[i].euryhaline << endl;
+				fishNumber++;
+			}
+		}
+		break;
 
 	}
 
@@ -407,8 +408,8 @@ void checkForMatchAdminData()
 	system("cls");
 	cin.ignore();
 	int counter = 0;
-	string* outputData=new string;
-	string* inputCheckData=new string;
+	string* outputData = new string;
+	string* inputCheckData = new string;
 	ifstream adminData("AdminData.txt");
 	printf("Enter admin email: ");
 	while (getline(adminData, *outputData))
@@ -424,7 +425,7 @@ void checkForMatchAdminData()
 
 	if (counter == 2)
 	{
-		checkForMatch = true;
+		global::checkForMatch = true;
 	}
 
 	delete outputData;
@@ -451,7 +452,7 @@ void startProgram()
 		break;
 
 	case 2:
-		if (checkForMatch)
+		if (global::checkForMatch)
 		{
 			inputFishData();
 			startProgram();
@@ -462,7 +463,7 @@ void startProgram()
 		break;
 
 	case 3:
-		if (checkForMatch)
+		if (global::checkForMatch)
 		{
 			removeFishFromData();
 			startProgram();
@@ -524,8 +525,8 @@ void startProgram()
 
 	case 5:
 		printFindingByParametersMenu();
-		cin >> *findChoice;
-		switch (*findChoice)
+		cin >> *global::findChoice;
+		switch (*global::findChoice)
 		{
 		case 1:
 			printFindByMenu();
@@ -570,7 +571,7 @@ void startProgram()
 	}
 
 	delete choice;
-	delete findChoice;
+	delete global::findChoice;
 }
 
 int main()
